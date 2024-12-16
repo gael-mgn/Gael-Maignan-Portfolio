@@ -1,0 +1,271 @@
+/* CSS pour le site Gaël Maignan (moderne et épuré) */
+
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #FBE284;
+    color: black;
+}
+
+a {
+    color: inherit;
+}
+
+header {
+    background: inherit;
+    padding: 1.5rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 600;
+}
+
+header nav a {
+        position: relative; /* Position relative pour placer le trait par rapport au lien */
+}
+header nav a::after, header nav a:hover::after {
+    content: ''; /* Ajoute un contenu pseudo-élément */
+    position: absolute; /* Position absolue par rapport au lien */
+    bottom: -5px; /* Place le trait juste en dessous du texte du lien */
+    left: 0; /* Alignement initial à gauche */
+    right: 0; /* Alignement final à droite */
+    /*margin: 0 auto; /* Centre horizontalement le trait */
+    width: 80%; /* Longueur du trait */
+    border-bottom: 2px solid; /* Épaisseur et style du trait (2px d'épaisseur, solide) */
+    transition: width 0.3s; /* Transition de la largeur du trait sur une durée de 0.3 seconde */
+    color: black;
+
+}
+header nav a::after{
+    width: 0px;
+}
+
+
+nav ul {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: flex;
+    /*justify-content: center;*/
+    gap: 2rem;
+}
+.menu-icon {
+    font-size: 24px;
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: flex;
+    }
+    .menu {
+        display: none;
+    }
+    nav ul {
+        gap: 0.7rem;
+        flex-direction: column;
+    }
+
+    ul li {
+  padding: 5px;
+  border-bottom: 2px solid black; /* Séparateur */
+}
+
+ul li:last-child {
+  border-bottom: none; /* Enlever la bordure du dernier élément */
+}
+
+
+    header h1 {
+        font-size: 24px;
+    }
+    .title {
+        display: grid;
+        grid-template-columns: auto auto; /* Crée 2 colonnes */
+    }
+    /*
+    nav ul li::after {
+        content: '';
+        position: absolute;
+        left: 5vw;
+        width: 80%;
+        height: 1px;
+        background-color: black;
+    }*/
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+}
+
+
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 0 20px;
+    text-align: left;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+        .section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            padding-bottom:0.5rem;
+            /*background: #FBE284;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            border-bottom: 6px solid black;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Style pour le parcours scolaire */
+        .short-entry {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        .short-logo {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            /*border-radius: 50%;*/
+            /*background-color: #e6e6e6;*/
+            margin-right: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .short-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .short-details {
+            flex-grow: 1;
+        }
+        .short-details h3 {
+            font-size: 1.2rem;
+            color: black;
+            margin: 0;
+        }
+        .short-details p {
+            margin: 0.3rem 0;
+            color: black    ;
+        }
+        .short-details .dates {
+            font-size: 0.9rem;
+            color: black;
+        }
+
+        /* Style pour les projets */
+        .project-entry {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+        }
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-details {
+            text-align: left;
+        }
+        .project-details h3 {
+            font-size: 1.4rem;
+            color: black;
+            margin: 0;
+        }
+        .project-details p {
+            margin: 0.5rem 0;
+            color: black;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 0.6rem;
+            text-decoration: none;
+            color: black;
+            border: 3px solid black;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .button:hover {
+            text-decoration: underline;
+        }
+
+img {
+    /*filter: grayscale(100%); /* Applique un effet noir et blanc complet */
+}
+.image-principale {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+/*
+.project-image, .short-logo{
+    display: none;
+}*/
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Ratio 16:9 (9 / 16 = 0.5625) */
+    background-color: #000; /* Optionnel : couleur de fond avant chargement de la vidéo */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
