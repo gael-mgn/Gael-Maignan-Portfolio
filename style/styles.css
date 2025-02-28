@@ -260,7 +260,7 @@ header {
 
 
 header {
-    font-size: 1em;
+    font-size: 0.8em;
 }
 }
 
@@ -548,7 +548,11 @@ header nav a::after
     margin: 10px;
     min-width: 250px;
   }
-  
+    @media (max-width: 768px) {
+        .footer-section {
+    margin: 0px;
+}
+    }
   .footer-section h3 {
     border-bottom: 2px solid #D8CCB3;
     padding-bottom: 5px;
