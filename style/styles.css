@@ -19,7 +19,9 @@ h1, h2, h3, .title {
 h2 {
     font-size: 1.6em;
 }
-
+.italic {
+    font-style: italic;
+}
 .featured-article, .articles-list {
     padding: 10px;
 }
@@ -69,7 +71,9 @@ section {
 
 .featured-article img {
     width: 100%;
+    max-height: 500px;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 .articles-list {
@@ -585,3 +589,4 @@ header nav a::after
       text-align: center;
     }
   }
+
