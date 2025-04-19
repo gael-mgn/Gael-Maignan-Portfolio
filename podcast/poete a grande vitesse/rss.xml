@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Le Guide du Patrimoine en déclin</title>
+    <link>https://gael-mgn.github.io/Podcast</link>
+    <language>fr-fr</language>
+    <copyright>© 2025 Gaël Maignan</copyright>
+    <itunes:author>Gaël Maignan</itunes:author>
+    <itunes:summary>Un podcast sur la restauration du patrimoine, les histoires cachées des monuments, et ceux qui les sauvegardent.</itunes:summary>
+    <description>Un podcast sur la restauration du patrimoine, les histoires cachées des monuments, et ceux qui les sauvegardent.</description>
+    <itunes:owner>
+      <itunes:name>Gaël Maignan</itunes:name>
+      <itunes:email>gael.maignan2@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://gael-mgn.github.io/Podcast/test/assets/cover.png"/>
+    <itunes:category text="Arts">
+      <itunes:category text="Design"/>
+    </itunes:category>
+    <itunes:explicit>no</itunes:explicit>
+
+
+    <item>
+      <title>Épisode 1 : La cathédrale invisible</title>
+      <itunes:episode>1</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <description>Dans ce premier épisode, on explore les défis techniques et humains du chantier de Notre-Dame de Paris.</description>
+      <enclosure url="https://gael-mgn.github.io/Podcast/test/audio/episode1.mp3" length="3745833" type="audio/mpeg"/>
+      <guid isPermaLink="false">episode-1-notre-dame</guid>
+      <pubDate>Mon, 15 Apr 2025 10:00:00 +0000</pubDate>
+      <itunes:image href="https://gael-mgn.github.io/Podcast/test/assets/episode1.png"/>
+      <itunes:duration>2:31</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+    </item>
+
+    <!-- Répéter les <item> pour chaque épisode -->
+
+  </channel>
+</rss>
