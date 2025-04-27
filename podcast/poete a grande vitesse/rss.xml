@@ -34,20 +34,20 @@
       <itunes:author>Gaël Maignan</itunes:author>
     </item>
 
-    <!--
+
     <item>
-      <title>Épisode 1 : La cathédrale invisible</title>
+      <title>Épisode 1 : Antibes</title>
       <itunes:episode>1</itunes:episode>
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
-      <description>Dans ce premier épisode, on explore les défis techniques et humains du chantier de Notre-Dame de Paris.</description>
-      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/" length="3745833" type="audio/mpeg"/>
-      <guid isPermaLink="false">episode-1-notre-dame</guid>
-      <pubDate>Mon, 21 Apr 2025 10:00:00 +0000</pubDate>
-      <itunes:duration>2:31</itunes:duration>
+      <description>Gaël Maignan - Je quitte la gare à pas lents, sans presser l’arrivée. Mes pieds suivent une intuition plus qu’un itinéraire. Très vite, la ville ancienne s’offre — ses ruelles étroites, pavées d’échos. Je pénètre dans le Vieil Antibes comme on entre dans une mémoire [...] </description>
+      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%201.ogg" length="17988880" type="audio/mpeg"/>
+      <guid isPermaLink="false">episode-1-antibes</guid>
+      <pubDate>Mon, 28 Apr 2025 10:00:00 +0000</pubDate>
+      <itunes:duration>9:58</itunes:duration>
       <itunes:explicit>no</itunes:explicit>
       <itunes:author>Gaël Maignan</itunes:author>
-    </item>-->
+    </item>
 
     <!-- Répéter les <item> pour chaque épisode -->
 
