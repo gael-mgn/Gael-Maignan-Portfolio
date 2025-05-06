@@ -49,6 +49,20 @@
       <itunes:author>Gaël Maignan</itunes:author>
     </item>
 
+    <item>
+      <title>Épisode 2 : Bergerac</title>
+      <itunes:episode>2</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <description>Gaël Maignan - Cyrano, noble nez dressé vers l’azur, trône au centre, gardien d’un esprit flamboyant, prince des bons mots et des bravades murmurées. Autour de lui, les maisons à colombages se penchent comme pour mieux écouter les vers oubliés.</description>
+      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%202.ogg" length="4757812" type="audio/mpeg"/>
+      <guid isPermaLink="false">episode-2-bergerac</guid>
+      <pubDate>Mon, 5 May 2025 10:00:00 +0000</pubDate>
+      <itunes:duration>7:34</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:author>Gaël Maignan</itunes:author>
+    </item>
+
     <!-- Répéter les <item> pour chaque épisode -->
 
   </channel>
