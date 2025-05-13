@@ -24,7 +24,7 @@
       <title>Bienvenue à bord de Poète à grande vitesse</title>
       <itunes:episodeType>trailer</itunes:episodeType>
       <description>Dans cet épisode d’ouverture, Gaël Maignan présente l’esprit du podcast : un voyage en prose à travers les villes, entre écriture, voix et errance poétique. Chaque week-end, une destination, un texte, une atmosphère.</description>
-      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/bande annonce.ogg" length="575009" type="audio/mpeg"/>
+      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/bande annonce.mp3" length="231120" type="audio/mpeg"/>
       <guid isPermaLink="false">bande-annonce</guid>
       <pubDate>Mon, 21 Apr 2025 10:00:00 +0000</pubDate>
       <!-- <itunes:image href="https://gael-mgn.github.io/Podcast/test/assets/episode1.png"/>-->
@@ -41,7 +41,7 @@
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
       <description>Gaël Maignan - Je quitte la gare à pas lents, sans presser l’arrivée. Mes pieds suivent une intuition plus qu’un itinéraire. Très vite, la ville ancienne s’offre — ses ruelles étroites, pavées d’échos. Je pénètre dans le Vieil Antibes comme on entre dans une mémoire [...] </description>
-      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%201.ogg" length="17988880" type="audio/mpeg"/>
+      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%201.mp3" length="7490611" type="audio/mpeg"/>
       <guid isPermaLink="false">episode-1-antibes</guid>
       <pubDate>Mon, 28 Apr 2025 10:00:00 +0000</pubDate>
       <itunes:duration>9:58</itunes:duration>
@@ -55,7 +55,7 @@
       <itunes:season>1</itunes:season>
       <itunes:episodeType>full</itunes:episodeType>
       <description>Gaël Maignan - Cyrano, noble nez dressé vers l’azur, trône au centre, gardien d’un esprit flamboyant, prince des bons mots et des bravades murmurées. Autour de lui, les maisons à colombages se penchent comme pour mieux écouter les vers oubliés.</description>
-      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%202.ogg" length="4757812" type="audio/mpeg"/>
+      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%202.mp3" length="6834350" type="audio/mpeg"/>
       <guid isPermaLink="false">episode-2-bergerac</guid>
       <pubDate>Mon, 5 May 2025 10:00:00 +0000</pubDate>
       <itunes:duration>7:34</itunes:duration>
@@ -70,7 +70,7 @@
       <itunes:episodeType>full</itunes:episodeType>
       <description>Gaël Maignan - Je pousse la porte, et me voilà dans le vent frais de la Franche-Comté, avec, devant moi, une ville lovée dans un méandre, comme un poème roulé sur lui-même, qu’il me faudra dérouler avec douceur.
 </description>
-      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%203.ogg" length="7258960" type="audio/mpeg"/>
+      <enclosure url="https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/audio/episode%203.mp3" length="8664157" type="audio/mpeg"/>
       <guid isPermaLink="false">episode-3-besancon</guid>
       <pubDate>Mon, 12 May 2025 10:00:00 +0000</pubDate>
       <itunes:duration>7:34</itunes:duration>
