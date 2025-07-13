@@ -1,330 +1,1461 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaël Maignan - Page Professionnelle</title>
-    <meta name="author" content="Gaël Maignan">
-    <meta name="robots" content="index, follow">
-    
-    <link rel="stylesheet" href="style/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaël Maignan – Artiste pluridisciplinaire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <meta name="description" content="Artiste, Auteur et Ingénieur en formation, je m’intéresse aux liens entre création artistique, urbanisme et politiques culturelles. Mon parcours croise expression poétique et aménagement urbain, avec un intérêt particulier pour la sauvegarde du patrimoine.">
-    <meta name="keywords" content="Gaël Maignan, gael maignan, auteur, Lueurs Reliées, Institut Français de Presse">
-    <meta property="og:title" content="Gaël Maignan - Page Professionnelle">
-    <meta property="og:description" content="Auteur et ingénieur en formation, je m’intéresse aux liens entre création artistique, urbanisme et politiques culturelles. Mon parcours croise expression poétique et aménagement urbain, avec un intérêt particulier pour la sauvegarde du patrimoine.">
-    <meta property="og:image" content="https://gael-maignan.fr/img/cover.png">
-    <meta property="og:url" content="https://gael-maignan.fr">
-    <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style/main.css">
 
-    <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <link rel="icon" sizes="32x32" href="img/favicon-32.png" type="image/png">
-    <link rel="icon" sizes="96x96" href="img/favicon-96.png" type="image/png">
+  <style>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+.hero {
+  padding: 7rem 2rem 4rem;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease-out both;
+}
 
-    <script src="js/menu.js"></script>
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #555;
+  font-weight: 300;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Gaël Maignan",
-        "jobTitle": "artiste",
-        "description": "artiste et auteur français",
-        "image": "https://gael-maignan.fr/img/gael-maignan.png",
-        "sameAs": [
-          "https://www.wikidata.org/wiki/Q134520089",
-          "https://www.artistescontemporains.org/artistes/51098/",
-          "https://www.artmajeur.com/gael-maignan",
-          "https://www.artactif.com/artistes/gael-maignan",
-          "https://art-confidential.com/artiste/2761-gael-maignan",
-          "https://www.linkedin.com/in/gael-maignan/",
-          "https://www.instagram.com/gael.maignan/",
-          "https://www.babelio.com/auteur/Gal-Maignan/777778",
-          "https://booknode.com/auteur/gael-maignan",
-          "https://lueurs-reliees.fr/articles/auteurs/gael-maignan.html",
-          "https://lueurs-revelees.fr/articles/gael%20maignan.html"
-        ]
-    }
-    </script>
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+}
+</style>
+
 
 
 </head>
 <body>
+<!--
+  <header>
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Gaël Maignan</a></div>
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>-->
 
+  <header>
+  <div class="logo">
+    <a href="#" style="text-decoration:none; color:inherit;">Gaël Maignan</a>
+  </div>
 
-        <header id="main-header">
-        <div class="container">
-            <div class="title">
-            <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-            <h1 class="banner-title"><a href="#"><strong>Gaël Maignan</strong> - Page Professionnelle</a></h1>
-            </div>
-    
-        <nav id="menu" class="main-menu">
-        <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="articles/about/about.html">À propos</a></li>
-            <li><a href="articles/contact/contact.html">Contact</a></li>
-        </ul>
-        </nav>
-        </div>
-    </header>
+  <button class="menu-toggle" aria-label="Menu">
+    &#9776;
+  </button>
 
-    <div class="content">
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#creation-artistique">Art</a>
+    <a href="urbanisme.html">Urbanisme</a>
+    <a href="about.html">À propos</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  </header>
 
-    <div class="section">
-    <div class="news-container">
-        <div class="featured-article">
-            <h2>Parcours</h2>
-            <div class="article-badge">
-                <a href="articles/about/about.html">
-                    <img src="img/gael-maignan.png" alt="Photographie de Gaël Maignan à la Comédie Française, prise par Eve Gadou à la Comédie Française - Paris">
-                    <div class="article-info">
-                        <p class="title"><strong>Gaël Maignan</strong></p>
-                        <p class="description">Artiste-Auteur et ingénieur en formation, je m’intéresse aux liens entre création artistique, urbanisme et politiques culturelles. Mon parcours croise expression poétique et aménagement urbain, avec un intérêt particulier pour la sauvegarde du patrimoine.</p>
-                    </div>
-                </a>
-            </div>
+  <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
 
-                        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/5zF5jX034V4QkG9yetmDCw?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <br>
-        </div>
-        <div class="articles-list">
-            <h2>Actualité</h2>
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+  </script>
 
+  <main>
+  <section class="hero">
+    <h1>Gaël Maignan</h1>
+    <p>Artiste pluridisciplinaire, je travaille à l'interface de la photographie, de l'écriture et de l’urbanisme.</p>
+  </section>
 
-            <div class="article-badge">
-                <a href="articles/démarche artistique/démarche artistique.html" class="article-info">
-                    <p class="title">Démarche artistique</p>
-                    <p class="description">Je développe une pratique artistique à la croisée des arts plastiques, de la poésie et de la photographie. Mon travail explore les liens sensibles entre mémoire, environnement et fragilité du vivant.</p>
-                </a>
-            </div>
-
-
-            <div class="article-badge">
-                    <a href="https://gael-maignan-photographe.fr/" target="_blank">
-                        <img src="img/buttes-chaumont.webp" alt="Photographie du parc des Buttes Chaumont prise le 24/05/2025 par Gaël Maignan">
-                        <div class="article-info">
-                            <p class="title">Photographie - Portfolio</p>
-                            <p class="description">Retrouvez un apperçu de mon travail sur mom portfolio photographique.</p>
-                        </div>
-                    </a>
-                </div>
-        </div>
+  <!-- Nouvelle section de présentation -->
+<section class="presentation">
+  <div class="presentation-content">
+    <div class="presentation-image fade-left">
+      <img src="images/portrait-gael.jpg" alt="Portrait de Gaël Maignan" />
     </div>
-    </div>
+    <div class="presentation-text fade-right">
+      <h2>À propos de moi</h2>
+      <p><strong>Diplômé en ingénierie urbaine</strong> et passionné par l’esthétique du quotidien, je développe une pratique transversale mêlant regard artistique et engagement territorial.</p>
+      <blockquote>« L’espace public est un terrain d’expression, de mémoire et d’avenir. »</blockquote>
+      <p>Mon parcours est tissé de <strong>collaborations</strong>, de chantiers collectifs et d’une attention constante à la <strong>mémoire des lieux</strong>.</p>
 
-    <div class="about">
-        <div class="container">
-            <h2>À propos</h2>
-
-            <p>
-                Ingénieur en génie urbain et auteur engagé, je m'intéresse aux liens entre aménagement du territoire, transmission des savoirs et politiques culturelles. Mon cursus à l’École des Ingénieurs de la Ville de Paris, enrichi par une formation en sciences de l'information et de la communication à l'IFP – Assas, me permet de croiser approche technique et enjeux culturels.
-            </p>
-            <p>
-                Engagé dans la valorisation du patrimoine et des formes contemporaines de création, je contribue à la médiation culturelle à travers des projets éditoriaux auprès des Éditions des Lueurs Reliées et radiophoniques à Radio Campus Paris ainsi que sur ma propre émission intitulée <span class="italic">Poète à grande vitesse</span>.
-            </p>
-        </div>
-    </div>
-
-
-    <div class="section">
-        <h2>Expression artistique</h2>
-        <div class="news-container">
-
-
-
-            <div class="featured-article">
-                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/0Udl5cVGssaXkZuAj9hXy7?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                <!---->
-                <style type="text/css">
-                    iframe{
-                        margin-bottom: 15px;
-                    }
-                </style>
-
-                
-
-                <div class="article-badge">
-                    <div class="article-info">
-                        <p class="title">Art Contemporain</p>
-                        <a href="https://www.artistescontemporains.org/artistes/51098/" target="_blank">Annuaire des Artistes Contemporains | Gaël Maignan</a>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-
-
-            <div class="articles-list">
-                <div class="article-badge">
-                    <!--<a href="https://www.babelio.com/auteur/Gal-Maignan/777778" class="article-info" target="_blank">
-                        <p class="title">Gaël Maignan - Page auteur | Babelio</p>
-                        <p class="description">Auteur de <span class="italic">Poètes, vos pensées</span>.</p>
-                    </a>-->
-                    <div class="article-info">
-                        <p class="title">Gaël Maignan - Page auteur</p>
-                        <p class="description">Auteur de <span class="italic">Poètes, vos pensées</span>.
-
-                        <a href="https://www.babelio.com/auteur/Gal-Maignan/777778" target="_blank">Gaël Maignan | Babelio</a>
-                        <a href="https://booknode.com/auteur/gael-maignan" target="_blank">Gaël Maignan | BookNode</a>
-                        </p>
-                    </div>                    
-                </div>
-
-                <div class="article-badge">
-                    <div class="article-info">
-                        <p class="title">Gaël Maignan - Audiovisuel</p>
-                        <a href="https://www.imdb.com/fr/name/nm17304284/" target="_blank">Gaël Maignan | IMDb</a>
-                        <a href="https://www.flickr.com/people/gael-maignan/" target="_blank">Gaël Maignan | flickr</a>
-                        <a href="https://500px.com/p/gael-maignan" target="_blank">Gaël Maignan | 500px</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="article-badge">
-                    <a href="podcast/poete a grande vitesse/index.html" target="_blank" alt="Illustration du podcast - Vue depuis un TGV avec un paysage dans un style impressioniste.">
-                        <!--<img src="podcast/poete a grande vitesse/cover.png" alt="Image de l'article à la une">-->
-                        <div class="article-info">
-                            <p class="title">Poète à grande vitesse</p>
-                            <p class="description">Poète à grande vitesse est un podcast poétique et itinérant. Chaque épisode est une escale dans une ville française, abordée non pas en guide touristique, mais en poète. Entre prose poétique, souffle intime et paysages traversés, ce podcast est une invitation au voyage intérieur, au rythme des rails.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <!--Radio Campus Paris Politique et patrimoine-->
-
-
-            </div>
-        </div>
-    </div>
-
-
-    <div class="section">
-        <h2>Culture et Patrimoine</h2>
-        <div class="news-container">
-            <div class="featured-article">
-                <div class="article-badge">
-                    <a href="https://patrimoineendeclin.fr/" target="_blank">
-                        <img src="img/banner.webp" alt="Image de l'article à la une">
-                        <div class="article-info">
-                            <p class="title">Guide du Patrimoine en Déclin</p>
-                            <p class="description">Le Patrimoine bâti est un témoin silencieux de l'histoire, de l'art et des savoir-faire d'antan. Pourtant, chaque année, des bâtiments, des monuments et des sites d'exception disparaissent faute d'entretien ou de moyens pour leur restauration. Ce projet a pour mission de mettre en lumière ces lieux en péril, de sensibiliser le public à leur importance et d'encourager les actions concrètes pour leur préservation.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="articles-list">
-
-                <div class="article-badge">
-                    <a href="https://lueurs-reliees.fr/" class="article-info" target="_blank">
-                        <p class="title">Éditions des Lueurs Reliées</p>
-                        <p class="description">Les Éditions des Lueurs Reliées sont une maison d’édition à but non lucratif, fondée avec une mission claire : offrir aux auteur·e·s une plateforme de publication solidaire. Portés par une vision d’une littérature inclusive, accessible et porteuse de valeurs, elle s'engage à mettre en lumière des voix singulières à travers un modèle associatif novateur.</p>
-                    </a>
-                </div>
-                <div class="article-badge">
-                    <a href="https://aglae-distribution.fr/" class="article-info" target="_blank">
-                        <p class="title">Aglaé Distribution</p>
-                        <p class="description">À Rebours Distribution est une société de distribution indépendante qui fait le choix des marges. Nous accompagnons les courts-métrages d'étudiant·es, de jeunes cinéastes autodidactes ou issus de parcours alternatifs.</p>
-                    </a>
-                </div>
-                <div class="article-badge">
-                    <a href="https://gael-mgn.github.io/invisu" class="article-info" target="_blank">
-                        <p class="title">InVisu 360 - Visites Virtuelles</p>
-                        <p class="description">Le patrimoine mérite d’être découvert par tous, sans limite géographique ni contrainte d’accessibilité. Avec InVisu 360, nous donnons vie aux musées, monuments et expositions grâce à des visites virtuelles interactives et immersives.</p>
-                    </a>
-                </div>
-
-                <!--Radio Campus Paris Politique et patrimoine-->
-
-
-            </div>
-        </div>
-    </div>
-
-    <section class="divers">
-    <div class="section">
-        <h2>Divers</h2>
-        <div class="news-container">
-            <div class="featured-article">
-                <div class="article-badge">
-                    <a href="articles/radio campus paris/radio-campus-paris.html">
-                        <img src="img/radio.png" alt="Miniature de la Matinale de 19h00 - Radio Campus Paris">
-                        <div class="article-info">
-                            <p class="title">Radio Campus Paris - La Matinale de 19h</p>
-                            <p class="description">Retrouvez toutes mes interventions sur l'antenne de Radio Campus Paris (FM 93.9)</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="articles-list">
-
-                <div class="article-badge">
-                    <a href="https://lueurs-revelees.fr" class="article-info" target="_blank">
-                        <p class="title">Recueil de Poèmes - Lueurs Révélées</p>
-                        <p class="description">J'ai commencé à écrire de la poésie après être tombé sous le charme de la plume de Paul Éluard dans son recueil “Capitale de la douleur”. C'est cette découverte qui m'a ammené à prendre la plume à mon tour...</p>
-                    </a>
-                </div>
-
-                <div class="article-badge">
-                    <a href="articles/du genie urbain au génie humain plaidoyer pour un chantier de conscience/du genie urbain au génie humain plaidoyer pour un chantier de conscience.html" class="article-info">
-                        <p class="title">Concours d’Eloquence - EIVP</p>
-                        <p class="description">La grande finale du Concours d’éloquence 2024 de l'EIVP a eu lieu le jeudi 5 décembre 2024, organisée par l'AEIVP, le Bureau des Élèves de L’EIVP ainsi que l’EIVP, en partenariat avec Syntec-Ingénierie !</p>
-                    </a>
-                </div>
-
-                <!--Radio Campus Paris Politique et patrimoine-->
-
-
-            </div>
-        </div>
-    </div>
-    </section>
-
-
-
-</div>
-
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-section contact">
-      <h3>Contact</h3>
-      <ul>
-        <li>Email : <a href="mailto:gael.maignan@eivp-paris.fr">gael.maignan@eivp-paris.fr</a></li>
-        <li><a href="https://fr.linkedin.com/in/gael-maignan" target="_blank">LinkedIn</a></li>
-      </ul>
-    </div>
-    
-    <div class="footer-section links">
-      <h3>Liens internes</h3>
-      <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="articles/about/about.html">À propos</a></li>
-        <li><a href="articles/contact/contact.html">Contact</a></li>
-      </ul>
-    </div>
-    
-    <div class="footer-section external">
-      <h3>Liens externes</h3>
-      <ul>
-        <li><a href="https://www.youtube.com/@gael-maignan" target="_blank">YouTube</a></li>
-        <li><a href="https://patrimoineendeclin.fr/" target="_blank">Guide du Patrimoine en Déclin</a></li>
-        <li><a href="http://lueurs-reliees.fr/" target="_blank">Éditions des Lueurs Reliées</a></li>
-        
-      </ul>
+      <div class="social-links">
+        <a href="https://www.youtube.com/@gael-maignan" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://soundcloud.com/gael-maignan" target="_blank" aria-label="SoundCloud">
+          <i class="fab fa-soundcloud"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/gael-maignan" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/gael.maignan" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
   </div>
-</footer>
+</section>
+
+
+<style>
+  .presentation {
+  position: relative;
+  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+.presentation-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.presentation-image img {
+  width: 280px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+/*
+.presentation-image img:hover {
+  transform: scale(1.03);
+}*/
+
+.presentation-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.presentation-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.presentation-text h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin-top: 0.5rem;
+}
+
+.presentation-text p {
+  font-size: 1.05rem;
+  color: #444;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.presentation-text strong {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* Animations */
+.fade-left {
+  animation: fadeLeft 1s ease forwards;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.fade-right {
+  animation: fadeRight 1s ease forwards;
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .presentation-content {
+    flex-direction: column;
+  }
+
+  .presentation-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .fade-left, .fade-right {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+
+  .social-links {
+  width: 100%;
+  justify-content: center;
+}
+}
+
+
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.social-links a {
+  color: #444444;
+  font-size: 1.6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+</style>
 
 
 
+
+<section class="sections">
+  <div class="section creation">
+    <h2>Création artistique</h2>
+    <p>Explorer les marges, documenter le réel, révéler les fragments de beauté du quotidien. Chaque série est une invitation au regard lent.</p>
+    <a href="series/index.html" class="lien">Voir les séries</a>
+  </div>
+
+  <div class="section ecriture">
+    <h2>Écriture</h2>
+    <p>Poèmes, essais, récits sensibles. L’écriture comme acte de résistance douce, de mise en lumière, de tissage entre mémoire et imaginaire.</p>
+    <a href="ecriture.html" class="lien">Lire les textes</a>
+  </div>
+
+  <div class="section urbanisme">
+    <h2>Urbanisme Sensible</h2>
+    <p>Diagnostics participatifs, cartographies sensibles, inventaires patrimoniaux. Des outils d’écoute et d’action pour la ville vécue.</p>
+    <a href="urbanisme.html" class="lien">Découvrir les projets</a>
+  </div>
+</section>
+<style>
+  .sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section {
+  background: var(--section-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+
+.section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.section p {
+  font-size: 0.97rem;
+  color: #444;
+  font-weight: 300;
+  margin-bottom: 1.2rem;
+}
+
+  .section {
+  background-color: var(--section-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+/* Dégradé blanc en bas */
+.section.creation::before {
+  background-image: 
+    linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
+    url('1.jpg');
+}
+
+.section.ecriture::before {
+  background-image: 
+    linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
+    url('2.jpg');
+}
+
+.section.urbanisme::before {
+  background-image: 
+    linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
+    url('3.jpg');
+}
+
+/* Affiche l’image en fondu au survol */
+.section:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+.section::before {
+  opacity: 1;
+}
+}
+
+/* Contenu au-dessus de l’image */
+.section > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+
+/* Amélioration lisibilité sur image */
+.section:hover {
+  color: white;
+}
+
+
+</style>
+
+
+<section id="creation-artistique" class="creation-artistique">
+  <div class="section-header">
+    <h2>Création artistique</h2>
+    <p>Photographie, Écriture et Production sont autant de supports de supports que j'expérimente</p>
+  </div>
+
+  <!-- Filtres -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Tous</button>
+    <button class="filter-btn" data-filter="photo">Photographie</button>
+    <button class="filter-btn" data-filter="plastique">Œuvres plastiques</button>
+    <button class="filter-btn" data-filter="ecriture">Écriture</button>
+    <button class="filter-btn" data-filter="audiovisuel">Audio / Vidéo</button>
+  </div>
+
+  <!-- Galerie -->
+  <div class="gallery">
+    <div class="gallery-item photo">
+        <a href="/photographe/photo1">
+          <img src="https://gael-maignan-photographe.fr/images/douce-provence-serie3-gael-maignan.webp" alt="Photo noir et blanc">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Série Photographie - Douce Provence</h3>
+              <p>Photographie numérique, 2024</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item photo">
+        <a href="/photographe/photo1">
+          <img src="https://gael-maignan-photographe.fr/images/ce-que-la-ville-murmure-gael-maignan.webp" alt="Photo noir et blanc">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Série Photographie - Ce que la ville murmure</h3>
+              <p>Photographie numérique, 2024</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item photo">
+        <a href="/photographe/photo1">
+          <img src="https://gael-maignan-photographe.fr/images/belleville-QPV-serie1-gael-maignan.webp" alt="Photo noir et blanc">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Série Photographie - Belleville QPV</h3>
+              <p>Photographie numérique, Paris Belleville, 2024</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item plastique">
+        <a href="/dessins/dessin1">
+          <img src="plot.png" alt="Dessin à l'encre">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Esquisse préparatoire - Chantier de Conscience</h3>
+              <p>Projet artistique pluridisciplinaire explorant la condition humaine dans le secteur de la construction</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item ecriture">
+        <a href="https://www.google.fr/books/edition/Je_ne_suis_pas_acteur/SONZEQAAQBAJ?hl=fr&gbpv=0" target="_blank">
+          <img src="livre.png" alt="Dessin à l'encre">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Livre - Je ne suis pas Acteur</h3>
+              <p>Dans une ruelle, un théâtre, un métro, il arrive, maladroit, un texte froissé à la main.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item audiovisuel">
+        <a href="podcast/poete a grande vitesse/index.html">
+          <img src="cover.png" alt="Dessin à l'encre">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Poète à grande vitesse</h3>
+              <p>Entre prose poétique, souffle intime et paysages traversés, ce podcast est une invitation au voyage intérieur, au rythme des rails.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+  </div>
+</section>
+<style>
+  .creation-artistique {
+  padding: 4rem 2rem;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.creation-artistique h2 {
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+}
+
+.creation-artistique p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: auto;
+  max-width: 400px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+.gallery-item a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.overlay-content {
+  text-align: center;
+  color: #000;
+}
+
+.overlay-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.overlay-content p {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #333;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .gallery-item {
+    overflow: visible;
+  }
+
+  .overlay {
+    position: static;
+    background: transparent;
+    opacity: 1;
+    padding: 0.5rem 0;
+    display: block;
+    height: auto;
+    transition: none;
+  }
+
+  .overlay-content {
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+
+  .overlay-content h3 {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+  }
+
+  .overlay-content p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .gallery-item:hover .overlay {
+    opacity: 1; /* s'assurer qu’il ne se cache pas au hover */
+  }
+}
+
+
+</style>
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Style actif
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      items.forEach(item => {
+        item.style.display = (filter === 'all' || item.classList.contains(filter)) ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+
+<section class="articles" id="articles">
+  <h2 class="articles-title">Dernières Publications</h2>
+  <div class="articles-grid">
+
+    <article class="article-card">
+      <img src="1.jpg" alt="Espace public" class="article-thumb">
+      <div class="article-body">
+        <h3>L’espace public comme théâtre du quotidien</h3>
+        <p class="article-date">Avril 2025</p>
+        <p>Réflexion sur les usages sensibles de l’espace urbain, entre corps, récits et mémoire des lieux.</p>
+        <a href="articles/espace-public.html" class="lien">Lire l’article</a>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <img src="3.jpg" alt="Espace public" class="article-thumb">
+      <div class="article-body">
+        <h3>Poétique du chantier</h3>
+        <p class="article-date">Février 2025</p>
+        <p>À travers les échafaudages et les gravats, une esthétique brute, vivante, pleine de récits en devenir.</p>
+        <a href="articles/chantier.html" class="lien">Lire l’article</a>
+      </div>
+    </article>
+
+    <article class="article-card">
+      <img src="2.jpg" alt="Mémoire urbaine" class="article-thumb">
+      <div class="article-body">
+        <h3>Fragments d’une mémoire urbaine</h3>
+        <p class="article-date">Décembre 2024</p>
+        <p>Un essai sensible sur les traces, les vides, les strates de la ville comme palimpseste du temps.</p>
+        <a href="articles/memoire-urbaine.html" class="lien">Lire l’article</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+<style>.articles {
+  background-color: var(--section-bg);
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.articles-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #111;
+  text-align: center;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.article-card:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.article-thumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+
+.article-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.article-body h3 {
+  font-size: 1.3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--text-color);
+  margin-bottom: 0.6rem;
+}
+
+.article-date {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 1rem;
+}
+
+.article-body p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+</style>
+
+
+
+
+<section class="podcast-section">
+  <div class="podcast-info">
+    <img src="cover.png" alt="Couverture du Podcast">
+    <h2>Poète à grande vitesse</h2>
+    <div class="podcast-subtitle">Fragments poétiques embarqués à bord du réel</div>
+    <p>Une voix circule entre gares et souvenirs. Le train devient page, le paysage devient vers.</p>
+
+    <a href="https://soundcloud.com/gael-maignan/sets/poete-a-grande-vitesse" class="listen-button" target="_blank">
+      <i class="fas fa-play-circle"></i> Écouter sur SoundCloud
+    </a>
+
+  </div>
+
+
+<div class="episodes-list">
+  <h3>Épisodes</h3>
+  <div class="season-selector">
+  <button class="season-button active" data-season="1">Saison 1</button>
+  <button class="season-button" data-season="2">Saison 2</button>
+</div>
+
+  <div class="season season-1">
+    <!-- Épisodes Saison 1 ici -->
+    <a class="episode" href="https://open.spotify.com/episode/5Sd6aTlbZHZrhkNH9zKmd6" target="_blank">
+      <img src="cover.png" alt="Épisode 1">
+      <div class="episode-content">
+        <div class="episode-title"><i class="fas fa-headphones"></i> Épisode 1 · Antibes</div>
+        <div class="episode-meta">10 min — 28 avril 2025</div>
+        <div class="episode-description">Je quitte la gare à pas lents, sans presser l’arrivée. Mes pieds suivent une intuition plus qu’un itinéraire. Très vite, la ville ancienne s’offre — ses ruelles étroites, pavées d’échos. Je pénètre dans le Vieil Antibes comme on entre dans une mémoire [...]</div>
+      </div>
+    </a>
+    <a class="episode" href="https://open.spotify.com/episode/05HAnVvM8WC7iFP5w7Yl26" target="_blank">
+      <img src="cover.png" alt="Épisode 2">
+      <div class="episode-content">
+        <div class="episode-title"><i class="fas fa-headphones"></i> Épisode 2 · Bergerac</div>
+        <div class="episode-meta">7 min — 5 mai 2025</div>
+        <div class="episode-description">Cyrano, noble nez dressé vers l’azur, trône au centre, gardien d’un esprit flamboyant, prince des bons mots et des bravades murmurées. Autour de lui, les maisons à colombages se penchent comme pour mieux écouter les vers oubliés.</div>
+      </div>
+    </a>
+    <a class="episode" href="https://soundcloud.com/ton-profil/episode-2" target="_blank">
+      <img src="cover.png" alt="Épisode 3">
+      <div class="episode-content">
+        <div class="episode-title"><i class="fas fa-headphones"></i> Épisode 3 · Besançon</div>
+        <div class="episode-meta">7 min — 12 mai 2025</div>
+        <div class="episode-description">Je pousse la porte, et me voilà dans le vent frais de la Franche-Comté, avec, devant moi, une ville lovée dans un méandre, comme un poème roulé sur lui-même, qu’il me faudra dérouler avec douceur.</div>
+      </div>
+    </a>
+    <!-- Ajoute d’autres épisodes de la Saison 1 -->
+  </div>
+
+  <div class="season season-2" style="display: none;">
+    <!-- Épisodes Saison 2 ici -->
+    <div class="episode">
+      <div class="episode-content">
+        <div class="episode-title">À venir...</div>
+      </div>
+    </div>
+    <!-- Autres épisodes de la Saison 2 -->
+  </div>
+
+</div>
+</section>
+<style>
+/* === Structure principale === */
+.podcast-section {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 40px 20px;
+  gap: 60px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  color: #111;
+}
+
+/* === Podcast Info (colonne gauche) === */
+.podcast-info {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.podcast-info img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.podcast-info h2 {
+  font-size: 2rem;
+  margin: 0 0 10px;
+  font-family: 'Playfair Display', serif;
+  position: relative;
+}
+
+
+@keyframes expand {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.podcast-info h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color, #d35400);
+  margin: 10px auto;
+  border-radius: 3px;
+  animation: expand 1s ease forwards;
+}
+
+.podcast-subtitle {
+  font-style: italic;
+  color: #777;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.podcast-info p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.listen-button {
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: var(--accent-color, #d35400);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s ease;
+}
+
+.listen-button:hover {
+  background-color: #b84700;
+}
+
+/* === Liste des épisodes (colonne droite) === */
+.episodes-list {
+  flex: 2 1 500px;
+}
+
+.episodes-list h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+/* === Carte d’un épisode === */
+.episode {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 18px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.episode:hover {
+  background-color: var(--hover-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.episode img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.episode-content {
+  flex: 1;
+}
+
+.episode-title {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-family: 'Playfair Display', serif;
+}
+
+.episode-title i {
+  color: var(--accent-color, #d35400);
+  margin-right: 6px;
+}
+
+.episode-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.episode-description {
+  font-size: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .podcast-section {
+    flex-direction: column;
+    padding: 30px 15px;
+  }
+
+  .podcast-info,
+  .episodes-list {
+    width: 100%;
+  }
+
+  .episode img {
+    display: none;
+  }
+
+  .episode-content {
+    align-items: center;
+  }
+}
+.season-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.season-button {
+  padding: 8px 16px;
+  background-color: #eee;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.season-button.active {
+  background-color: var(--accent-color, #d35400);
+  color: white;
+}
+
+</style>
+
+<script>
+  const seasonButtons = document.querySelectorAll('.season-button');
+  const seasons = document.querySelectorAll('.season');
+
+  seasonButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedSeason = button.getAttribute('data-season');
+
+      // Met à jour les boutons
+      seasonButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // Affiche la saison sélectionnée
+      seasons.forEach(season => {
+        season.style.display = season.classList.contains('season-' + selectedSeason)
+          ? 'block'
+          : 'none';
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+<section class="art-section">
+  <div class="art-header">
+    <h2 class="art-title">Œuvre à la Une - Esquisse préparatoire, Chantier de Conscience</h2>
+  </div>
+
+  <div class="art-content">
+    <div class="art-image">
+      <img src="plot.png" alt="Esquisse préparatoire - Chantier de Conscience">
+    </div>
+
+    <div class="art-info">
+      <div class="art-details">
+        <div><h3>Date</h3><p>2025</p></div>
+        <div><h3>Technique</h3><p>Dessin</p></div>
+        <div><h3>Dimensions</h3><p>A4</p></div>
+        <div><h3>Projet</h3><a href="lll" class="lien">Chantier de Conscience</a></div>
+      </div>
+
+      <div class="art-description">
+        <hr class="separator" />
+        <h3>Description</h3>
+        <p>
+          Chaque année, en France comme ailleurs, des ouvriers du bâtiment tombent, fauchés en plein labeur. Chutes, électrocutions, effondrements, autant de tragédies reléguées aux marges, comme de simples contretemps dans la frénésie du progrès. Cette œuvre cherche à suspendre le cours de cette indifférence. Le plot de chantier, habituellement discret gardien des dangers, s’érige ici en mémorial silencieux. La craie blanche, trace éphémère des corps effacés, évoque les contours dessinés sur les scènes de crime, un rappel brut et saisissant de la violence de ces disparitions.
+        </p>
+      </div>
+      <a href="#visite" class="lien">En savoir plus >></a>
+
+
+
+      
+    </div>
+  </div>
+</section>
+
+
+<style>.art-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+  border-radius: 1rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Inter', sans-serif;
+  color: #111;
+}
+
+.art-header {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 40px;
+}
+
+.art-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.art-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* espacement contrôlé entre image et infos */
+}
+
+.art-image {
+  flex: 1 1 30px;
+}
+
+.art-image img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.art-info {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* réduit l'espace entre détails et description */
+}
+
+.art-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px 24px;
+}
+
+.art-details h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #555;
+  margin: 0 0 2px;
+}
+
+.art-details p {
+  font-size: 1rem;
+  color: #111;
+  margin: 0;
+}
+
+.art-description {
+  margin-top: 0; /* plus de marge excessive */
+}
+
+.separator {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 6px 0 12px;
+}
+
+.art-description h3 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.art-description p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #222;
+  margin: 0;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .art-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .art-image img {
+    max-width: 100%;
+  }
+
+  .art-info {
+    width: 100%;
+    margin-top: 0; /* supprime la marge supplémentaire */
+  }
+
+  .art-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<section class="agenda">
+  <div class="agenda-column">
+    <h2>À venir</h2>
+    <ul>
+      <li>
+        <time datetime="2025">2025</time> — <span class="event-title">Lancement performé de <em>Lueurs Révélées</em></span> <span class="note">(lieu à confirmer)</span>
+      </li>
+      <li>
+        <time datetime="2025">2025</time> — <span class="event-title">Intervention poétique en milieu carcéral</span>, avec <span class="org">Lieux de Parole</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="agenda-column">
+    <h2>Événements passés</h2>
+    <ul>
+      <li>
+        <time datetime="2024">2024</time> — Lecture à voix nue, <span class="org">Comédie Française</span> — Atelier Jeunes Lecteurs
+      </li>
+      <li>
+        <time datetime="2024">2024</time> — Performance <em>« Corps en mots »</em>, Nuit Blanche étudiante, Paris
+      </li>
+      <li>
+        <time datetime="2023">2023</time> — Atelier poétique en collège REP, Marseille, avec <span class="org">Poètes à l’école</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+.agenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 3rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  color: #111;
+  background-color: #fff;
+}
+
+.agenda-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.agenda-column h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.agenda-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.agenda-column li {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.agenda-column time {
+  font-weight: bold;
+  color: #000;
+  margin-right: 0.5rem;
+}
+
+.event-title {
+  font-style: italic;
+}
+
+.org {
+  font-style: normal;
+  font-weight: 500;
+}
+
+.note {
+  color: #777;
+  font-size: 0.9rem;
+  margin-left: 0.3rem;
+}
+  
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="exploration" id="exploration">
+  <div class="exploration-content">
+    <h2>Appel à l’exploration</h2>
+    <p class="subtitle">Parcourez un territoire d’images, de mots et de cartes sensibles.<br>
+    Un site, trois chemins. À croiser librement.</p>
+    <a href="#visite" class="exploration-button">Commencer la visite</a>
+  </div>
+
+  <div class="exploration-slider">
+    <div class="slider-track">
+      <img src="1.jpg" alt="Dessin urbain" />
+      <img src="2.jpg" alt="Carte sensible" />
+      <img src="3.jpg" alt="Manuscrit" />
+      <img src="4.jpg" alt="Diagnostic urbain" />
+      <img src="5.jpg" alt="Photo noir & blanc" />
+      <img src="1.jpg" alt="Dessin urbain" />
+      <img src="2.jpg" alt="Carte sensible" />
+      <img src="3.jpg" alt="Manuscrit" />
+      <img src="4.jpg" alt="Diagnostic urbain" />
+      <img src="5.jpg" alt="Photo noir & blanc" />
+    </div>
+  </div>
+</section>
+
+<style>.exploration {
+  padding: 5rem 2rem;
+  background-color: var(--section-bg);
+  color: var(--text-color);
+  overflow: hidden;
+  text-align: center;
+}
+
+.exploration-content {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+
+.exploration h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.exploration .subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.exploration-button {
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  transition: var(--transition);
+}
+
+.exploration-button:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Slider auto */
+.exploration-slider {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.slider-track {
+  display: inline-block;
+  animation: slide-left 60s linear infinite;
+}
+
+.slider-track img {
+  height: 160px;
+  margin: 0 1rem;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+@keyframes slide-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+
+  <footer>
+    © 2025 Gaël Maignan – Tous droits réservés
+  </footer>
 
 </body>
 </html>

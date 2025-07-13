@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaël Maignan – À propos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style/main.css">
+
+
+
+
+</head>
+<body>
+<!--
+  <header>
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Gaël Maignan</a></div>
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="about.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>-->
+
+  <header>
+  <div class="logo">
+    <a href="index.html" style="text-decoration:none; color:inherit;">Gaël Maignan</a>
+  </div>
+
+  <button class="menu-toggle" aria-label="Menu">
+    &#9776;
+  </button>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#creation-artistique">Art</a>
+    <a href="urbanisme.html">Urbanisme</a>
+    <a href="about.html">À propos</a>
+    <a href="#">Contact</a>
+  </nav>
+  </header>
+
+  <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+  </script>
+
+  <main>
+
+
+  <!-- Nouvelle section de présentation -->
+  <section class="presentation">
+    <div class="presentation-content">
+      <div class="presentation-image fade-left">
+        <img src="images/portrait-gael.jpg" alt="Portrait de Gaël Maignan" />
+      </div>
+      <div class="presentation-text fade-right">
+        <h2>Biographie</h2>
+        <p>Gaël Maignan (né en 2004) est un artiste-auteur pluridisciplinaire dont le travail explore les liens entre poésie, mémoire et espace urbain. Formé en génie urbain à l’École des Ingénieurs de la Ville de Paris et en information-communication à l’Institut Français de Presse, il développe une approche transversale mêlant écriture, arts visuels et engagement pour le patrimoine.</p>
+        <p>Sa création s’ancre dans les interstices de la ville : il photographie les détails que l’œil pressé ignore, dessine ce que les murs murmurent et écrit comme on arpente une rue. Son style, influencé par Paul Éluard, se déploie entre prose poétique, photographie documentaire et installations visuelles.</p>
+
+        <p>Source : <a class="lien" href="https://www.wikidata.org/wiki/Q134520089" target="_blank">https://www.wikidata.org/wiki/Q134520089</a></p>
+
+
+      </div>
+    </div>
+
+  </section>
+
+<style>
+  .presentation {
+  position: relative;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+.presentation-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.presentation-image img {
+  width: 280px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+/*
+.presentation-image img:hover {
+  transform: scale(1.03);
+}*/
+
+.presentation-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.presentation-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.presentation-text h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin-top: 0.5rem;
+}
+
+.presentation-text p {
+  font-size: 1.05rem;
+  color: #444;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.presentation-text strong {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* Animations */
+.fade-left {
+  animation: fadeLeft 1s ease forwards;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.fade-right {
+  animation: fadeRight 1s ease forwards;
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .presentation-content {
+    flex-direction: column;
+  }
+
+  .presentation-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .fade-left, .fade-right {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+
+  .social-links {
+  width: 100%;
+  justify-content: center;
+}
+}
+
+
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.social-links a {
+  color: #444444;
+  font-size: 1.6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
+}
+
+</style>
+
+
+  <!-- Nouvelle section de présentation -->
+  <section class="text">
+    <div class="text-content">
+
+        <h2>Presse / Médias</h2>
+        <a class="lien" href="" target="_blank"></a>
+
+    </div>
+  </section>
+
+
+
+
+</main>
+
+
+  <footer>
+    © 2025 Gaël Maignan – Tous droits réservés
+  </footer>
+
+</body>
+</html>
