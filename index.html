@@ -69,8 +69,7 @@
     <a href="#">Accueil</a>
     <a href="#creation-artistique">Art</a>
     <a href="urbanisme.html">Urbanisme</a>
-    <a href="about.html">À propos</a>
-    <a href="contact.html">Contact</a>
+    <a href="about.html">À propos / Contact</a>
   </nav>
   </header>
 
@@ -93,13 +92,13 @@
 <section class="presentation">
   <div class="presentation-content">
     <div class="presentation-image fade-left">
-      <img src="images/portrait-gael.jpg" alt="Portrait de Gaël Maignan" />
+      <img src="images/portrait-gael-maignan.webp" alt="Portrait de Gaël Maignan" />
     </div>
     <div class="presentation-text fade-right">
       <h2>À propos de moi</h2>
-      <p><strong>Diplômé en ingénierie urbaine</strong> et passionné par l’esthétique du quotidien, je développe une pratique transversale mêlant regard artistique et engagement territorial.</p>
+      <p>Diplômé en ingénierie urbaine et passionné par l’esthétique du quotidien, je développe une pratique transversale mêlant regard artistique et engagement territorial.</p>
       <blockquote>« L’espace public est un terrain d’expression, de mémoire et d’avenir. »</blockquote>
-      <p>Mon parcours est tissé de <strong>collaborations</strong>, de chantiers collectifs et d’une attention constante à la <strong>mémoire des lieux</strong>.</p>
+      <p>Mon parcours est tissé de collaborations, de chantiers collectifs et d’une attention constante à la mémoire des lieux.</p>
 
       <div class="social-links">
         <a href="https://www.youtube.com/@gael-maignan" target="_blank" aria-label="YouTube">
@@ -120,151 +119,6 @@
 </section>
 
 
-<style>
-  .presentation {
-  position: relative;
-  background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-}
-
-
-.presentation-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 2rem;
-}
-
-.presentation-image img {
-  width: 280px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.4s ease;
-}
-
-/*
-.presentation-image img:hover {
-  transform: scale(1.03);
-}*/
-
-.presentation-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.presentation-text h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--text-color);
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.presentation-text h2::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: var(--accent-color);
-  margin-top: 0.5rem;
-}
-
-.presentation-text p {
-  font-size: 1.05rem;
-  color: #444;
-  font-weight: 300;
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-
-.presentation-text strong {
-  color: var(--accent-color);
-  font-weight: 500;
-}
-
-/* Animations */
-.fade-left {
-  animation: fadeLeft 1s ease forwards;
-  opacity: 0;
-  transform: translateX(-50px);
-}
-
-.fade-right {
-  animation: fadeRight 1s ease forwards;
-  opacity: 0;
-  transform: translateX(50px);
-}
-
-@keyframes fadeLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeRight {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .presentation-content {
-    flex-direction: column;
-  }
-
-  .presentation-image img {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .fade-left, .fade-right {
-    transform: none;
-    opacity: 1;
-    animation: none;
-  }
-
-  .social-links {
-  width: 100%;
-  justify-content: center;
-}
-}
-
-
-.social-links {
-  margin-top: 2rem;
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-
-.social-links a {
-  color: #444444;
-  font-size: 1.6rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-links a:hover {
-  transform: scale(1.1);
-  color: var(--accent-color);
-}
-
-</style>
-
-
-
-
 <section class="sections">
   <div class="section creation">
     <h2>Création artistique</h2>
@@ -275,7 +129,7 @@
   <div class="section ecriture">
     <h2>Écriture</h2>
     <p>Poèmes, essais, récits sensibles. L’écriture comme acte de résistance douce, de mise en lumière, de tissage entre mémoire et imaginaire.</p>
-    <a href="ecriture.html" class="lien">Lire les textes</a>
+    <a href="#" class="lien">Lire les textes</a>
   </div>
 
   <div class="section urbanisme">
@@ -361,19 +215,19 @@
 .section.creation::before {
   background-image: 
     linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
-    url('1.jpg');
+    url('https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/1.webp');
 }
 
 .section.ecriture::before {
   background-image: 
     linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
-    url('2.jpg');
+    url('https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/2.webp');
 }
 
 .section.urbanisme::before {
   background-image: 
     linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
-    url('3.jpg');
+    url('https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/3.webp');
 }
 
 /* Affiche l’image en fondu au survol */
@@ -436,8 +290,8 @@
       </div>
 
       <div class="gallery-item photo">
-        <a href="/photographe/photo1">
-          <img src="https://gael-maignan-photographe.fr/images/ce-que-la-ville-murmure-gael-maignan.webp" alt="Photo noir et blanc">
+        <a href="https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/ce%20que%20la%20ville%20murmure.html" target="_blank">
+          <img src="https://gael-maignan-photographe.fr/images/ce-que-la-ville-murmure-gael-maignan.webp" alt="Couverture de la série Photographie - Ce que la Ville murmure, Gaël Maignan">
           <div class="overlay">
             <div class="overlay-content">
               <h3>Série Photographie - Ce que la ville murmure</h3>
@@ -448,8 +302,8 @@
       </div>
 
       <div class="gallery-item photo">
-        <a href="/photographe/photo1">
-          <img src="https://gael-maignan-photographe.fr/images/belleville-QPV-serie1-gael-maignan.webp" alt="Photo noir et blanc">
+        <a href="https://gael-maignan-photographe.fr/series/belleville%20QPV/belleville%20QPV.html" target="_blank">
+          <img src="https://gael-maignan-photographe.fr/images/belleville-QPV-serie1-gael-maignan.webp" alt="Couverture de la série Photographie - Belleville QPV, Gaël Maignan">
           <div class="overlay">
             <div class="overlay-content">
               <h3>Série Photographie - Belleville QPV</h3>
@@ -460,8 +314,8 @@
       </div>
 
       <div class="gallery-item plastique">
-        <a href="/dessins/dessin1">
-          <img src="plot.png" alt="Dessin à l'encre">
+        <a href="#">
+          <img src="images/esquisse chantier de conscience.webp" alt="Esquisse préparatoire - Chantier de Conscience">
           <div class="overlay">
             <div class="overlay-content">
               <h3>Esquisse préparatoire - Chantier de Conscience</h3>
@@ -473,7 +327,7 @@
 
       <div class="gallery-item ecriture">
         <a href="https://www.google.fr/books/edition/Je_ne_suis_pas_acteur/SONZEQAAQBAJ?hl=fr&gbpv=0" target="_blank">
-          <img src="livre.png" alt="Dessin à l'encre">
+          <img src="images/je ne suis pas acteur.webp" alt="Couverture du livre Je ne suis pas Acteur - Gaël Maignan">
           <div class="overlay">
             <div class="overlay-content">
               <h3>Livre - Je ne suis pas Acteur</h3>
@@ -485,7 +339,7 @@
 
       <div class="gallery-item audiovisuel">
         <a href="podcast/poete a grande vitesse/index.html">
-          <img src="cover.png" alt="Dessin à l'encre">
+          <img src="podcast/poete a grande vitesse/cover.webp" alt="Dessin à l'encre">
           <div class="overlay">
             <div class="overlay-content">
               <h3>Poète à grande vitesse</h3>
@@ -666,32 +520,32 @@
   <div class="articles-grid">
 
     <article class="article-card">
-      <img src="1.jpg" alt="Espace public" class="article-thumb">
+      <img src="https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/1.webp" alt="Espace public" class="article-thumb">
       <div class="article-body">
         <h3>L’espace public comme théâtre du quotidien</h3>
         <p class="article-date">Avril 2025</p>
         <p>Réflexion sur les usages sensibles de l’espace urbain, entre corps, récits et mémoire des lieux.</p>
-        <a href="articles/espace-public.html" class="lien">Lire l’article</a>
+        <a href="#" class="lien">Lire l’article</a>
       </div>
     </article>
 
     <article class="article-card">
-      <img src="3.jpg" alt="Espace public" class="article-thumb">
+      <img src="https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/3.webp" alt="Espace public" class="article-thumb">
       <div class="article-body">
         <h3>Poétique du chantier</h3>
         <p class="article-date">Février 2025</p>
         <p>À travers les échafaudages et les gravats, une esthétique brute, vivante, pleine de récits en devenir.</p>
-        <a href="articles/chantier.html" class="lien">Lire l’article</a>
+        <a href="#" class="lien">Lire l’article</a>
       </div>
     </article>
 
     <article class="article-card">
-      <img src="2.jpg" alt="Mémoire urbaine" class="article-thumb">
+      <img src="https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/2.webp" alt="Mémoire urbaine" class="article-thumb">
       <div class="article-body">
         <h3>Fragments d’une mémoire urbaine</h3>
         <p class="article-date">Décembre 2024</p>
         <p>Un essai sensible sur les traces, les vides, les strates de la ville comme palimpseste du temps.</p>
-        <a href="articles/memoire-urbaine.html" class="lien">Lire l’article</a>
+        <a href="#" class="lien">Lire l’article</a>
       </div>
     </article>
 
@@ -776,7 +630,7 @@
 
 <section class="podcast-section">
   <div class="podcast-info">
-    <img src="cover.png" alt="Couverture du Podcast">
+    <img src="podcast/poete a grande vitesse/cover.webp" alt="Couverture du Podcast">
     <h2>Poète à grande vitesse</h2>
     <div class="podcast-subtitle">Fragments poétiques embarqués à bord du réel</div>
     <p>Une voix circule entre gares et souvenirs. Le train devient page, le paysage devient vers.</p>
@@ -798,7 +652,7 @@
   <div class="season season-1">
     <!-- Épisodes Saison 1 ici -->
     <a class="episode" href="https://open.spotify.com/episode/5Sd6aTlbZHZrhkNH9zKmd6" target="_blank">
-      <img src="cover.png" alt="Épisode 1">
+      <img src="podcast/poete a grande vitesse/cover.webp" alt="Épisode 1">
       <div class="episode-content">
         <div class="episode-title"><i class="fas fa-headphones"></i> Épisode 1 · Antibes</div>
         <div class="episode-meta">10 min — 28 avril 2025</div>
@@ -806,7 +660,7 @@
       </div>
     </a>
     <a class="episode" href="https://open.spotify.com/episode/05HAnVvM8WC7iFP5w7Yl26" target="_blank">
-      <img src="cover.png" alt="Épisode 2">
+      <img src="podcast/poete a grande vitesse/cover.webp" alt="Épisode 2">
       <div class="episode-content">
         <div class="episode-title"><i class="fas fa-headphones"></i> Épisode 2 · Bergerac</div>
         <div class="episode-meta">7 min — 5 mai 2025</div>
@@ -814,7 +668,7 @@
       </div>
     </a>
     <a class="episode" href="https://soundcloud.com/ton-profil/episode-2" target="_blank">
-      <img src="cover.png" alt="Épisode 3">
+      <img src="podcast/poete a grande vitesse/cover.webp" alt="Épisode 3">
       <div class="episode-content">
         <div class="episode-title"><i class="fas fa-headphones"></i> Épisode 3 · Besançon</div>
         <div class="episode-meta">7 min — 12 mai 2025</div>
@@ -1075,7 +929,7 @@
 
   <div class="art-content">
     <div class="art-image">
-      <img src="plot.png" alt="Esquisse préparatoire - Chantier de Conscience">
+      <img src="images/esquisse chantier de conscience.webp" alt="Esquisse préparatoire - Chantier de Conscience">
     </div>
 
     <div class="art-info">
@@ -1083,7 +937,7 @@
         <div><h3>Date</h3><p>2025</p></div>
         <div><h3>Technique</h3><p>Dessin</p></div>
         <div><h3>Dimensions</h3><p>A4</p></div>
-        <div><h3>Projet</h3><a href="lll" class="lien">Chantier de Conscience</a></div>
+        <div><h3>Projet</h3><a href="#" class="lien">Chantier de Conscience</a></div>
       </div>
 
       <div class="art-description">
@@ -1093,7 +947,7 @@
           Chaque année, en France comme ailleurs, des ouvriers du bâtiment tombent, fauchés en plein labeur. Chutes, électrocutions, effondrements, autant de tragédies reléguées aux marges, comme de simples contretemps dans la frénésie du progrès. Cette œuvre cherche à suspendre le cours de cette indifférence. Le plot de chantier, habituellement discret gardien des dangers, s’érige ici en mémorial silencieux. La craie blanche, trace éphémère des corps effacés, évoque les contours dessinés sur les scènes de crime, un rappel brut et saisissant de la violence de ces disparitions.
         </p>
       </div>
-      <a href="#visite" class="lien">En savoir plus >></a>
+      <a href="#" class="lien">En savoir plus >></a>
 
 
 
@@ -1238,10 +1092,10 @@
     <h2>À venir</h2>
     <ul>
       <li>
-        <time datetime="2025">2025</time> — <span class="event-title">Lancement performé de <em>Lueurs Révélées</em></span> <span class="note">(lieu à confirmer)</span>
+        <time datetime="2025">octobre 2025 à février 2026</time> — Résidence / mobilité artistique à Athènes <span class="note">(Grèce)</span>
       </li>
       <li>
-        <time datetime="2025">2025</time> — <span class="event-title">Intervention poétique en milieu carcéral</span>, avec <span class="org">Lieux de Parole</span>
+        <time datetime="2025">septembre 2025</time> — Lancement de l'édition de l'ouvrage <em>La Ville à Dire</em>
       </li>
     </ul>
   </div>
@@ -1250,13 +1104,13 @@
     <h2>Événements passés</h2>
     <ul>
       <li>
-        <time datetime="2024">2024</time> — Lecture à voix nue, <span class="org">Comédie Française</span> — Atelier Jeunes Lecteurs
+        <time datetime="2025">juin 2025</time> — Restitution finale, <span class="org">Comédie Française</span> — Jeune Bureau de la Comédie Française
       </li>
       <li>
-        <time datetime="2024">2024</time> — Performance <em>« Corps en mots »</em>, Nuit Blanche étudiante, Paris
+        <time datetime="2025">17 mai 2025</time> — Soirée de restitution du <em>« Parlement de l’Architecture »</em>, 21e Nuit européenne des musées, Centre Pompidou, Paris
       </li>
       <li>
-        <time datetime="2023">2023</time> — Atelier poétique en collège REP, Marseille, avec <span class="org">Poètes à l’école</span>
+        <time datetime="2024">5 décembre 2024</time> — Finale du concours d'éloquence, <span class="org">École des Ingénieurs de la Ville de Paris</span>, Paris
       </li>
     </ul>
   </div>
@@ -1342,25 +1196,26 @@
 
 
 <section class="exploration" id="exploration">
-  <div class="exploration-content">
+  <!--<div class="exploration-content">
     <h2>Appel à l’exploration</h2>
     <p class="subtitle">Parcourez un territoire d’images, de mots et de cartes sensibles.<br>
     Un site, trois chemins. À croiser librement.</p>
     <a href="#visite" class="exploration-button">Commencer la visite</a>
-  </div>
+  </div>-->
 
   <div class="exploration-slider">
     <div class="slider-track">
-      <img src="1.jpg" alt="Dessin urbain" />
-      <img src="2.jpg" alt="Carte sensible" />
-      <img src="3.jpg" alt="Manuscrit" />
-      <img src="4.jpg" alt="Diagnostic urbain" />
-      <img src="5.jpg" alt="Photo noir & blanc" />
-      <img src="1.jpg" alt="Dessin urbain" />
-      <img src="2.jpg" alt="Carte sensible" />
-      <img src="3.jpg" alt="Manuscrit" />
-      <img src="4.jpg" alt="Diagnostic urbain" />
-      <img src="5.jpg" alt="Photo noir & blanc" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/1.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/2.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/3.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/4.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/5.webp" alt="" />
+
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/1.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/2.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/3.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/4.webp" alt="" />
+      <img src="file:///C:/Users/gaelm/Desktop/portfolio/series/ce%20que%20la%20ville%20murmure/images/5.webp" alt="" />
     </div>
   </div>
 </section>

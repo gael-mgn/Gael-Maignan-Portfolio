@@ -12,6 +12,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+ul {
+  list-style-type: none;
+  padding-left: 0; /* Optionnel : pour enlever l'indentation */
+}
 .lien {
   text-decoration: none;
   color: var(--accent-color);
@@ -191,9 +195,9 @@ footer {
 
 .text {
   position: relative;
-  padding: 2rem 2rem;
+  padding: 1rem 2rem;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
@@ -206,6 +210,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: 2rem;
 }
 
 
@@ -243,4 +248,145 @@ footer {
 .text-content strong {
   color: var(--accent-color);
   font-weight: 500;
+}
+
+
+
+
+  .presentation {
+  position: relative;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+}
+
+
+.presentation-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.presentation-image img {
+  width: 280px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease;
+}
+
+/*
+.presentation-image img:hover {
+  transform: scale(1.03);
+}*/
+
+.presentation-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.presentation-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--text-color);
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.presentation-text h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  margin-top: 0.5rem;
+}
+
+.presentation-text p {
+  font-size: 1.05rem;
+  color: #444;
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.presentation-text strong {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+/* Animations */
+.fade-left {
+  animation: fadeLeft 1s ease forwards;
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.fade-right {
+  animation: fadeRight 1s ease forwards;
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+@keyframes fadeLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .presentation-content {
+    flex-direction: column;
+  }
+
+  .presentation-image img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .fade-left, .fade-right {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+
+  .social-links {
+  width: 100%;
+  justify-content: center;
+}
+}
+
+
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+
+.social-links a {
+  color: #444444;
+  font-size: 1.6rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.1);
+  color: var(--accent-color);
 }
