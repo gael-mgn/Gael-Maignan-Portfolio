@@ -49,8 +49,8 @@
 
     <item>
       <title>La Matinale de 19h — Flash info (13 février 2025)</title>
-      <itunes:episode>1</itunes:episode>
-      <itunes:season>1</itunes:season>
+       <itunes:season>1</itunes:season>
+      <itunes:episode>3</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
       <description>Flash info — La Matinale de 19h (13 février 2025), présenté par Gaël Maignan</description>
       <enclosure url="https://gael-maignan.fr/podcast/radio campus paris/audio/13-02-2025.mp3" length="3587893" type="audio/mpeg"/>
@@ -63,8 +63,8 @@
 
     <item>
       <title>La Matinale de 19h — Flash info (19 février 2025)</title>
-      <itunes:episode>1</itunes:episode>
       <itunes:season>1</itunes:season>
+      <itunes:episode>4</itunes:episode>
       <itunes:episodeType>full</itunes:episodeType>
       <description>Flash info — La Matinale de 19h (19 février 2025), présenté par Gaël Maignan</description>
       <enclosure url="https://gael-maignan.fr/podcast/radio campus paris/audio/19-02-2025.mp3" length="8664157" type="audio/mpeg"/>
