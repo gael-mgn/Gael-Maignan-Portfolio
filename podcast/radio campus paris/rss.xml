@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Radio Campus Paris – Gaël Maignan</title>
+    <link>https://gael-maignan.fr/podcast/radio campus paris/</link>
+    <language>fr-fr</language>
+    <copyright>© 2025 Radio Campus Paris</copyright>
+    <itunes:author>Gaël Maignan</itunes:author>
+    <itunes:summary>Chroniques, interviews culturelles et flashs d'information : retrouvez les interventions de Gaël Maignan à l'antenne de Radio Campus Paris (93.9 FM).</itunes:summary>
+    <description>Chroniques, interviews culturelles et flashs d'information : retrouvez les interventions de Gaël Maignan à l'antenne de Radio Campus Paris (93.9 FM).</description>
+    <itunes:owner>
+      <itunes:name>Gaël Maignan</itunes:name>
+      <itunes:email>podcast@gael-maignan.fr</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://gael-maignan.fr/podcast/radio campus paris/cover.png"/>
+    <itunes:category text="News">
+      <itunes:category text="Society &amp; Culture"/>
+    </itunes:category>
+    <itunes:explicit>no</itunes:explicit>
+
+
+    <item>
+      <title>La Matinale de 19h – Zoom : Christina Rosmini (5 février 2025)</title>
+      <itunes:season>1</itunes:season>
+      <itunes:episode>1</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <description>Zoom – La Matinale de 19h (5 février 2025), présenté par Gaël Maignan</description>
+      <enclosure url="https://gael-maignan.fr/podcast/radio campus paris/audio/05-02-2025.mp3" length="14728991" type="audio/mpeg"/>
+      <guid isPermaLink="false">05-02-2025</guid>
+      <pubDate>Wed, 5 Feb 2025 19:00:00 +0000</pubDate>
+      <itunes:duration>9:50</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:author>Gaël Maignan</itunes:author>
+    </item>
+
+    <item>
+      <title>La Matinale de 19h – Flash info (6 février 2025)</title>
+      <itunes:season>1</itunes:season>
+      <itunes:episode>2</itunes:episode>
+      <itunes:episodeType>full</itunes:episodeType>
+      <description>Flash info – La Matinale de 19h (6 février 2025), présenté par Gaël Maignan</description>
+      <enclosure url="https://gael-maignan.fr/podcast/radio campus paris/audio/06-02-2025.mp3" length="3745833" type="audio/mpeg"/>
+      <guid isPermaLink="false">06-02-2025</guid>
+      <pubDate>Thu, 6 Feb 2025 19:00:00 +0000</pubDate>
+      <itunes:duration>2:31</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:author>Gaël Maignan</itunes:author>
+    </item>
+
+    <item>
+      <title>La Matinale de 19h – Flash info (13 février 2025)</title>
+      <itunes:episode>1</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <description>Flash info – La Matinale de 19h (13 février 2025), présenté par Gaël Maignan</description>
+      <enclosure url="https://gael-maignan.fr/podcast/radio campus paris/audio/13-02-2025.mp3" length="3587893" type="audio/mpeg"/>
+      <guid isPermaLink="false">13-02-2025</guid>
+      <pubDate>Thu, 13 Feb 2025 19:00:00 +0000</pubDate>
+      <itunes:duration>2:21</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:author>Gaël Maignan</itunes:author>
+    </item>
+
+    <item>
+      <title>La Matinale de 19h – Flash info (19 février 2025)</title>
+      <itunes:episode>1</itunes:episode>
+      <itunes:season>1</itunes:season>
+      <itunes:episodeType>full</itunes:episodeType>
+      <description>Flash info – La Matinale de 19h (19 février 2025), présenté par Gaël Maignan</description>
+      <enclosure url="https://gael-maignan.fr/podcast/radio campus paris/audio/19-02-2025.mp3" length="8664157" type="audio/mpeg"/>
+      <guid isPermaLink="false">19-02-2025</guid>
+      <pubDate>Wed, 19 Feb 2025 19:00:00 +0000</pubDate>
+      <itunes:duration>2:33</itunes:duration>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:author>Gaël Maignan</itunes:author>
+    </item>
+
+
+  </channel>
+</rss>
