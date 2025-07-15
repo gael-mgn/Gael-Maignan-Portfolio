@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaël Maignan – Création Artistique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <meta name="description" content="Photographie, écriture, production... autant de médiums que j’explore, au fil des idées et des formes.">
+  <meta name="keywords" content="Gaël Maignan, gael maignan, artiste, art, oeuvres">
+
+  <link rel="stylesheet" href="style/main.css">
+
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/png"/>
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="icon" sizes="32x32" href="images/favicon-32.png" type="image/png">
+  <link rel="icon" sizes="96x96" href="images/favicon-96.png" type="image/png">
+
+  <style>
+
+.hero {
+  padding: 7rem 2rem 4rem;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease-out both;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: #555;
+  font-weight: 300;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+}
+</style>
+
+
+
+</head>
+<body>
+<!--
+  <header>
+    <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">Gaël Maignan</a></div>
+    <nav>
+      <a href="#projets">Projets</a>
+      <a href="contact.html">À propos</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>-->
+
+  <header>
+  <div class="logo">
+    <a href="index.html" style="text-decoration:none; color:inherit;">Gaël Maignan</a>
+  </div>
+
+  <button class="menu-toggle" aria-label="Menu">
+    &#9776;
+  </button>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="#">Art</a>
+    <a href="urbanisme.html">Urbanisme</a>
+    <a href="contact.html">À propos / Contact</a>
+  </nav>
+  </header>
+
+  <script>
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+  </script>
+
+  <main>
+  <section class="hero">
+    <h1>Créarion artistique</h1>
+    <p>Photographie, écriture, production... autant de médiums que j’explore, au fil des idées et des formes.</p>
+  </section>
+
+
+
+
+<section id="creation-artistique" class="creation-artistique">
+
+  <!-- Filtres -->
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Tous</button>
+    <button class="filter-btn" data-filter="photo">Photographie</button>
+    <button class="filter-btn" data-filter="plastique">Œuvres plastiques</button>
+    <button class="filter-btn" data-filter="ecriture">Écriture</button>
+    <button class="filter-btn" data-filter="audiovisuel">Audio / Vidéo</button>
+  </div>
+
+  <!-- Galerie -->
+  <div class="gallery">
+    <div class="gallery-item photo">
+        <a href="https://gael-maignan-photographe.fr/series/douce%20provence/douce%20provence.html" target="_blank">
+          <img src="https://gael-maignan-photographe.fr/images/douce-provence-serie3-gael-maignan.webp" alt="Photo noir et blanc">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Série Photographie - Douce Provence</h3>
+              <p>Photographie numérique, 2024</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item photo">
+        <a href="https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/ce%20que%20la%20ville%20murmure.html" target="_blank">
+          <img src="https://gael-maignan-photographe.fr/images/ce-que-la-ville-murmure-gael-maignan.webp" alt="Couverture de la série Photographie - Ce que la Ville murmure, Gaël Maignan">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Série Photographie - Ce que la ville murmure</h3>
+              <p>Photographie numérique, 2024</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item photo">
+        <a href="https://gael-maignan-photographe.fr/series/belleville%20QPV/belleville%20QPV.html" target="_blank">
+          <img src="https://gael-maignan-photographe.fr/images/belleville-QPV-serie1-gael-maignan.webp" alt="Couverture de la série Photographie - Belleville QPV, Gaël Maignan">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Série Photographie - Belleville QPV</h3>
+              <p>Photographie numérique, Paris Belleville, 2024</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item plastique">
+        <a href="#">
+          <img src="images/esquisse chantier de conscience.webp" alt="Esquisse préparatoire - Chantier de Conscience">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Esquisse préparatoire - Chantier de Conscience</h3>
+              <p>Projet artistique pluridisciplinaire explorant la condition humaine dans le secteur de la construction</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item ecriture">
+        <a href="https://www.google.fr/books/edition/Je_ne_suis_pas_acteur/SONZEQAAQBAJ?hl=fr&gbpv=0" target="_blank">
+          <img src="images/je ne suis pas acteur.webp" alt="Couverture du livre Je ne suis pas Acteur - Gaël Maignan">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Livre - Je ne suis pas Acteur</h3>
+              <p>Dans une ruelle, un théâtre, un métro, il arrive, maladroit, un texte froissé à la main.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="gallery-item audiovisuel">
+        <a href="podcast/poete a grande vitesse/index.html">
+          <img src="podcast/poete a grande vitesse/cover.webp" alt="Dessin à l'encre">
+          <div class="overlay">
+            <div class="overlay-content">
+              <h3>Poète à grande vitesse</h3>
+              <p>Entre prose poétique, souffle intime et paysages traversés, ce podcast est une invitation au voyage intérieur, au rythme des rails.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+  </div>
+</section>
+<style>
+  .creation-artistique {
+  padding: 4rem 2rem;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.creation-artistique h2 {
+  font-size: 2rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 0.5rem;
+}
+
+.creation-artistique p {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  background: white;
+  border: 1px solid #aaa;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: auto;
+  max-width: 400px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+.gallery-item a {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.overlay-content {
+  text-align: center;
+  color: #000;
+}
+
+.overlay-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.overlay-content p {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #333;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .gallery-item {
+    overflow: visible;
+  }
+
+  .overlay {
+    position: static;
+    background: transparent;
+    opacity: 1;
+    padding: 0.5rem 0;
+    display: block;
+    height: auto;
+    transition: none;
+  }
+
+  .overlay-content {
+    text-align: left;
+    padding: 0.5rem 0;
+  }
+
+  .overlay-content h3 {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+  }
+
+  .overlay-content p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+
+  .gallery-item:hover .overlay {
+    opacity: 1; /* s'assurer qu’il ne se cache pas au hover */
+  }
+}
+
+
+</style>
+<script>
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Style actif
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      items.forEach(item => {
+        item.style.display = (filter === 'all' || item.classList.contains(filter)) ? 'block' : 'none';
+      });
+    });
+  });
+</script>
+
+
+  <!-- Nouvelle section de présentation -->
+<section class="presentation">
+  <div class="presentation-content">
+    <div class="presentation-image fade-left">
+      <img src="images/portrait-gael-maignan.webp" alt="Portrait de Gaël Maignan" />
+    </div>
+    <div class="presentation-text fade-right">
+      <h2>À propos de moi</h2>
+      <p>Diplômé en ingénierie urbaine et passionné par l’esthétique du quotidien, je développe une pratique transversale mêlant regard artistique et urbanisme.</p>
+      <blockquote>« L’espace public est un terrain d’expression, de mémoire et d’avenir. »<br>– Gaël M.</blockquote>
+      <p>Mon parcours est tissé de collaborations, de chantiers collectifs et d’une attention constante à la mémoire des lieux.</p>
+
+      <a class="lien" href="intention-artistique.html">Démarche artistique - Note d'intention</a>
+
+      <div class="social-links">
+        <a href="https://www.youtube.com/@gael-maignan" target="_blank" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://soundcloud.com/gael-maignan" target="_blank" aria-label="SoundCloud">
+          <i class="fab fa-soundcloud"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/gael-maignan" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://www.instagram.com/gael.maignan" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+</main>
+
+
+  <footer>
+    © 2025 Gaël Maignan – Tous droits réservés
+  </footer>
+
+</body>
+</html>

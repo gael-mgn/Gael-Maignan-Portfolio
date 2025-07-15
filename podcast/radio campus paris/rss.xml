@@ -12,7 +12,7 @@
       <itunes:name>Gaël Maignan</itunes:name>
       <itunes:email>podcast@gael-maignan.fr</itunes:email>
     </itunes:owner>
-    <itunes:image href="https://gael-maignan.fr/podcast/radio campus paris/cover.png"/>
+    <itunes:image href="https://gael-maignan.fr/podcast/radio%20campus%20paris/cover.png"/>
     <itunes:category text="News">
       <itunes:category text="Society &amp; Culture"/>
     </itunes:category>
