@@ -21,11 +21,41 @@
   <style>
 
 .hero {
+  position: relative;
   padding: 7rem 2rem 4rem;
   text-align: center;
   max-width: 960px;
   margin: 0 auto;
   animation: fadeIn 1.2s ease-out both;
+  z-index: 1;
+}
+
+/* Image de fond (contenue proprement) */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background-image: url('images/paon.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+/* Filtre blanc qui dépasse en bas */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: calc(100% + 1px);
+  background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 200%);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -35,6 +65,18 @@
   color: #000;
 }
 
+.hero h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-color, #d35400);
+  margin: 5px auto;
+  border-radius: 3px;
+  animation: expand 1s ease forwards;
+}
+
+
 .hero p {
   font-size: 1.15rem;
   color: #555;
@@ -42,6 +84,7 @@
   max-width: 720px;
   margin: 0 auto;
 }
+
 
 
 @media (max-width: 600px) {
@@ -226,13 +269,13 @@
 .section.creation::before {
   background-image: 
     linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
-    url('https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/1.webp');
+    url('images/paon.png');
 }
 
 .section.ecriture::before {
   background-image: 
     linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 300%),
-    url('https://gael-maignan-photographe.fr/series/ce%20que%20la%20ville%20murmure/images/2.webp');
+    url('podcast/poete a grande vitesse/cover.png');
 }
 
 .section.urbanisme::before {
