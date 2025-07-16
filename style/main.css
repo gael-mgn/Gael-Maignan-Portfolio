@@ -70,11 +70,30 @@ nav a {
   color: var(--text-color);
   font-weight: 300;
   transition: color 0.3s ease;
+
+  position: relative;
+  display: inline-block;
 }
 
 nav a:hover {
   color: var(--accent-color);
 }
+
+nav a::after {
+  content: "";
+  display: block;
+  width: 0; /* Commence fermé */
+  height: 3px;
+  background-color: var(--accent-color, #d35400);
+  margin: 0px auto 0; /* Espace au-dessus, centré */
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
 
 /* Bouton menu hamburger (caché en desktop) */
 .menu-toggle {
