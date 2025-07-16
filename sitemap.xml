@@ -9,28 +9,38 @@
 
 <url>
   <loc>https://gael-maignan.fr/</loc>
-  <lastmod>2025-07-13T23:47:51+00:00</lastmod>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://gael-maignan.fr/urbanisme.html</loc>
-  <lastmod>2025-07-13T23:47:51+00:00</lastmod>
+  <loc>https://gael-maignan.fr/art</loc>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gael-maignan.fr/about.html</loc>
-  <lastmod>2025-07-13T23:47:51+00:00</lastmod>
+  <loc>https://gael-maignan.fr/urbanisme</loc>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/index.html</loc>
-  <lastmod>2025-07-13T23:47:51+00:00</lastmod>
+  <loc>https://gael-maignan.fr/contact</loc>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://gael-maignan.fr/index.html</loc>
-  <lastmod>2025-07-13T23:47:51+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://gael-maignan.fr/intention-artistique</loc>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gael-maignan.fr/projets/chantier%20de%20conscience/chantier%20de%20conscience</loc>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://gael-maignan.fr/podcast/poete%20a%20grande%20vitesse/</loc>
+  <lastmod>2025-07-16T05:19:53+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 
 
