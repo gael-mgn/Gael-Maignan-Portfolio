@@ -5,15 +5,6 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Gaël Maignan</title>
-
-
-<meta name="description" content="Né à Paris en mars 2004, Gaël Maignan est un artiste et auteur français dont le travail mêle écriture, photographie et arts plastiques. Urbaniste de formation, il développe une pratique à la croisée de la création artistique et de l’exploration urbaine, où mémoire, territoires et récits sensibles se répondent.">
-<meta name="keywords" content="Gaël Maignan, gael maignan, auteur, Urbanisme, EIVP">
-<meta property="og:image" content="https://gael-maignan.fr/images/cover.webp">
-
-<script type="module" src="https://gael-maignan.fr/logs"></script>
-
-
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Neue+Haas+Grotesk+Display+Pro:wght@400;500&amp;display=swap" rel="stylesheet"/>
@@ -321,7 +312,16 @@
       padding-top: 48px;
     }
 
-
+    /* Sur tablette/mobile : 2 colonnes pour les events */
+    @media (max-width: 1100px) {
+      .events-inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 0 48px;
+      }
+      /* Les titres d'années span toute la grille */
+      .events-year-group { break-inside: avoid; }
+    }
 
     @media (max-width: 640px) {
       .events-inner { display: block; }
@@ -455,7 +455,7 @@
 
     .section-title {
       font-family: var(--font-display);
-      font-size: clamp(35px, 6vw, 50px);
+      font-size: clamp(43px, 6vw, 50px);
       font-weight: 300;
       line-height: 1.05;
       letter-spacing: 0.07em;
@@ -475,6 +475,11 @@
     .card-small { grid-column: span 3; }
     .card-half  { grid-column: span 6; }
     .card-third { grid-column: span 4; }
+
+    @media (max-width: 1024px) {
+      .card-wide, .card-med, .card-small { grid-column: span 6; }
+      .card-half { grid-column: span 6; }
+    }
 
     @media (max-width: 768px) {
       .grid { grid-template-columns: 1fr; gap: 32px; }
@@ -520,53 +525,6 @@
 
     .card:hover .card-img-wrap img { transform: scale(1.04); }
     .card:hover .card-overlay { opacity: 1; }
-
-    /* Bandeau titre toujours visible sur desktop */
-    @media (min-width: 769px) {
-      .card-img-wrap {
-        position: relative;
-      }
-
-      .card-title-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(to top, rgba(26,24,20,0.82) 0%, rgba(26,24,20,0.0) 100%);
-        padding: 32px 20px 16px;
-        pointer-events: none;
-        z-index: 1;
-        transition: opacity var(--transition);
-      }
-
-      /* On masque le bandeau quand l'overlay complet est visible */
-      .card:hover .card-title-bar {
-        opacity: 0;
-      }
-
-      .card-title-bar-sub {
-        font-size: 10px;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #fff;
-        margin-bottom: 4px;
-      }
-
-      .card-title-bar-text {
-        font-family: var(--font-display);
-        font-size: 16px;
-        font-weight: 300;
-        color: #fff;
-        line-height: 1.2;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .card-title-bar { display: none; }
-    }
 
     .card-overlay-title {
       font-family: var(--font-display);
@@ -959,13 +917,17 @@
 <p class="bio-tagline">Auteur · Artiste pluridisciplinaire</p>
 <div class="bio-divider"></div>
 <div class="bio-text">
-<p>Né à Paris en mars 2004, Gaël Maignan est un artiste et auteur français dont le travail mêle écriture, photographie et arts plastiques. Urbaniste de formation, il développe une pratique à la croisée de la création artistique et de l’exploration urbaine, où mémoire, territoires et récits sensibles se répondent.</p>
+<p>Gaël Maignan est auteur et artiste pluridisciplinaire. Son travail traverse l'écriture, la voix, la scène et l'image, autour de questions liées au corps, au territoire et à la mémoire collective.</p>
 </div>
 <div class="bio-contact-block">
 <p class="bio-contact-label">Contact</p>
 <div class="bio-contact-line">
 <span class="bio-contact-icon">✉</span>
-<a href="mailto:contact@gael-maignan.fr">contact@gael-maignan.fr</a>
+<a href="mailto:contact@gaelmaignan.fr">contact@gaelmaignan.fr</a>
+</div>
+<div class="bio-contact-line">
+<span class="bio-contact-icon">↗</span>
+<a href="https://gaelmaignan.fr" target="_blank">gaelmaignan.fr</a>
 </div>
 </div>
 </div>
@@ -1052,22 +1014,6 @@
           badgeWrap.appendChild(badge);
         });
         wrap.appendChild(badgeWrap);
-      }
-    }
-
-    // Bandeau titre toujours visible sur desktop
-    const titleWrap = clone.querySelector('.card-img-wrap');
-    if (titleWrap) {
-      const subEl    = card.querySelector('.card-overlay-sub');
-      const titleEl  = card.querySelector('.card-overlay-title');
-      const subText   = subEl   ? subEl.textContent.trim()   : '';
-      const titleText = titleEl ? titleEl.textContent.trim() : '';
-      if (titleText) {
-        const bar = document.createElement('div');
-        bar.className = 'card-title-bar';
-        bar.innerHTML = (subText ? `<p class="card-title-bar-sub">${subText}</p>` : '')
-                      + `<p class="card-title-bar-text">${titleText}</p>`;
-        titleWrap.appendChild(bar);
       }
     }
 
