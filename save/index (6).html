@@ -16,8 +16,10 @@
 
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Neue+Haas+Grotesk+Display+Pro:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<!-- fallback for Neue Haas -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 
 <style>
     /* ─── RESET & BASE ──────────────────────────────────────────────── */
@@ -748,17 +750,10 @@
       max-width: 680px;
       width: 100%;
       max-height: 88vh;
-      overflow: hidden;
+      overflow-y: auto;
       position: relative;
-      display: flex;
-      flex-direction: column;
       box-shadow: 0 24px 80px rgba(26,24,20,0.28);
       animation: popupIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    }
-
-    .popup-scroll {
-      overflow-y: auto;
-      flex: 1;
       scrollbar-width: thin;
       scrollbar-color: var(--accent) transparent;
     }
@@ -814,7 +809,7 @@
     .popup-close {
       position: absolute;
       top: 14px;
-      right: 24px;
+      right: 14px;
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -827,9 +822,8 @@
       font-size: 18px;
       color: var(--muted);
       transition: background var(--transition), color var(--transition), border-color var(--transition);
-      z-index: 10;
+      z-index: 2;
       line-height: 1;
-      flex-shrink: 0;
     }
     .popup-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
@@ -987,7 +981,7 @@
 
 <div class="event-item">
 <span class="event-month">7 Juin 2026</span>
-<span class="event-desc">Lecture à voix haute : Le dilemme de l'architecte Mâhyâr, « La Reine ». 38 allée Vivaldi - 75012 Paris. D'après la pièce de Reza Ghassemi, traduit du persan par Jean-Charles Flores, mise en voix par Emmanuel Houzé.</span>
+<span class="event-desc">Lecture à voix haute : Le dilemme de l'architecte Mâhyâr, 38 allée Vivaldi - 75012 Paris</span>
 </div>
 
 <div class="event-item">
@@ -998,17 +992,10 @@
 </div>
 <div class="events-year-group">
 <p class="events-year">2025</p>
-
 <div class="event-item">
-<span class="event-month">22 Juin 2025 à 19h</span>
-<span class="event-desc">Restitution du Jeune Bureau, Comédie Française (salle Escande). Montage mis en voix par Christian Gonon et Ariane Dumont-Lewi.</span>
+<span class="event-month">21 et 22 Juin 2025</span>
+<span class="event-desc">Restitution du Jeune Bureau, Comédie Française.</span>
 </div>
-
-<div class="event-item">
-<span class="event-month">21 Juin 2025 à 16h</span>
-<span class="event-desc">Restitution du Jeune Bureau, Comédie Française (salle Escande). Montage mis en voix par Christian Gonon et Ariane Dumont-Lewi.</span>
-</div>
-
 </div>
 </div><!-- /events-inner -->
 </div><!-- /events-block -->
@@ -1020,7 +1007,7 @@
 <p class="events-year">2024-2027</p>
 <div class="event-item">
 <span class="event-month">EIVP</span>
-<span class="event-desc">École des Ingénieurs de la Ville de Paris - Génie Urbain.</span>
+<span class="event-desc">École des Ingénieurs de la Ville de Paris - Génie Urbain</span>
 </div>
 
 </div>
@@ -1028,7 +1015,7 @@
 <p class="events-year">2025</p>
 <div class="event-item">
 <span class="event-month">Comédie Française</span>
-<span class="event-desc">Jeune Bureau de la Comédie Française.</span>
+<span class="event-desc">Jeune Bureau de la Comédie Française</span>
 </div>
 </div>
 </div><!-- /events-inner -->
@@ -1039,17 +1026,11 @@
 </section>
 </div><!-- /container -->
 </main>
-
 <footer>
-  <div class="container">
-    <p>© <span id="year"></span> Gaël Maignan — Tous droits réservés</p>
-  </div>
+<div class="container">
+<p>© 2024 Gaël Maignan — Tous droits réservés</p>
+</div>
 </footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 <!-- ═══════════════════════════════════════════════════════════════════
      JS
 ═══════════════════════════════════════════════════════════════════ -->
@@ -1300,15 +1281,13 @@
 <div class="popup-backdrop" id="popup-backdrop" role="dialog" aria-modal="true">
   <div class="popup" id="popup">
     <button class="popup-close" id="popup-close" aria-label="Fermer">✕</button>
-    <div class="popup-scroll">
-      <img alt="" class="popup-img" id="popup-img" src="" style="display:none"/>
-      <div class="popup-body">
-        <p class="popup-sub" id="popup-sub"></p>
-        <h2 class="popup-title" id="popup-title"></h2>
-        <!--<div class="popup-divider"></div>-->
-        <p class="popup-desc" id="popup-desc"></p>
-        <div id="popup-btn-wrap"></div>
-      </div>
+    <img alt="" class="popup-img" id="popup-img" src="" style="display:none"/>
+    <div class="popup-body">
+      <p class="popup-sub" id="popup-sub"></p>
+      <h2 class="popup-title" id="popup-title"></h2>
+      <!--<div class="popup-divider"></div>-->
+      <p class="popup-desc" id="popup-desc"></p>
+      <div id="popup-btn-wrap"></div>
     </div>
   </div>
 </div>
@@ -1332,9 +1311,9 @@
 </div>
 </div>
 <div class="card-info">
-<p class="card-info-sub">Mise en Voix : Le dilemme de l'architecte Mâhyâr, « La Reine ».</p>
+<p class="card-info-sub">Mise en Voix : Le dilemme de l'architecte Mâhyâr</p>
 <h3 class="card-info-title">Voix du dedans</h3>
-<p class="card-info-desc">Au palais de boukhara, la Reine est rongée par un profond chagrin. Le roi la délaisse depuis plus d'un an, totalement absorbé par l'édification du somptueux palais de Khovarnaq. La disparition inexpliquée de son architecte laisse le souverain dans un état de grande anxiété et d'errance. D'après la pièce de Reza Ghassemi, traduit du persan par Jean-Charles Flores, mise en voix par Emmanuel Houzé.</p>
+<p class="card-info-desc">Série de portraits sonores intimistes, captés dans des espaces confinés.</p>
 <a class="btn" href="#e">Affiche</a>
 </div>
 </div>
@@ -1373,8 +1352,7 @@
 <div class="card-info">
 <p class="card-info-sub">Projet historico-cartographique, 2026</p>
 <h3 class="card-info-title">Bièvre histoire au fil de l'eau</h3>
-<p class="card-info-desc">Ce projet historico-cartographique reconstitue le tracé de la Bièvre, dont le cours fut profondément modifié par les activités humaines jusqu’à devenir un ruisseau
-insalubre. Progressivement canalisée puis entièrement enfouie en 1912, elle est ici retracée à partir d’une sélection d’archives. Photographies, gravures et peintures ont été géoréférencées puis mises en parallèle avec des vues actuelles. Chaque point d’intérêt permet de comparer simultanément l’archive historique et une vue immersive à 360° issue de Google Street View.</p>
+<p class="card-info-desc">La Bièvre, qui s’étendait sur 36 kilomètres, pénétrait dans Paris par la Poterne des Peupliers, dans le 13ᵉ arrondissement. Sur une distance de 5 kilomètres, elle serpentait à travers les 13ᵉ et 5ᵉ arrondissements avant de se jeter dans la Seine, à hauteur de la gare d’Austerlitz. Transformée par l’activité humaine en un cours d’eau malodorant, elle fut progressivement canalisée puis enfouie en 1912.</p>
 <a class="btn" href="https://gael-maignan.fr/bievre-histoire-au-fil-de-l-eau/" target="_blank">Découvrir la cartographie</a>
 </div>
 </div>
@@ -1392,11 +1370,7 @@ insalubre. Progressivement canalisée puis entièrement enfouie en 1912, elle es
 <div class="card-info">
 <p class="card-info-sub">Athènes, 2026</p>
 <h3 class="card-info-title">Série photographique - Sous les Yeu</h3>
-<p class="card-info-desc">Sous les pas pressés, bien plus bas que l’horizon d’un regard ignare, la pierre gémit,
-elle garde en son sein la mémoire des orages,
-les brûlures du soleil, les confidences des mousses,
-et s’offre pourtant, docile, au fardeau quotidien
-de ceux qui l’effleurent sans la voir.</p>
+<p class="card-info-desc">Série photographique - Sous les Yeux</p>
 <a class="btn" href="https://gael-maignan-photographe.fr/series/sous%20les%20yeux/sous%20les%20yeux.html" target="_blank">Découvrir la série photographique</a>
 </div>
 </div>
@@ -1419,7 +1393,7 @@ de ceux qui l’effleurent sans la voir.</p>
 <p class="card-info-desc">Athènes, 1ᵉʳ octobre 2025. La Grèce vit au ralenti : syndicats et travailleurs observent une grève générale contre la réforme autorisant des journées de travail de treize heures.
 [Au milieu de la foule, Panos Rutsis poursuit sa grève de la faim en mémoire de son fils, victime du drame ferroviaire de Tempi, rappelant que le combat pour la justice ne s’arrête pas aux revendications sociales.]
 Ce film suit une journée de rassemblements et de voix qui résonnent place Syntagma.</p>
-<a class="btn" href="https://sous-les-titres.fr/films/le%20jour%20des%2013%20heures/le%20jour%20des%2013%20heures" target="_blank">Visionner le film</a>
+<a class="btn" href="https://sous-les-titres.fr/films/le%20jour%20des%2013%20heures/le%20jour%20des%2013%20heures" target="_blank">Voir le projet</a>
 </div>
 </div>
 
