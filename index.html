@@ -750,10 +750,17 @@
       max-width: 680px;
       width: 100%;
       max-height: 88vh;
-      overflow-y: auto;
+      overflow: hidden;
       position: relative;
+      display: flex;
+      flex-direction: column;
       box-shadow: 0 24px 80px rgba(26,24,20,0.28);
       animation: popupIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    .popup-scroll {
+      overflow-y: auto;
+      flex: 1;
       scrollbar-width: thin;
       scrollbar-color: var(--accent) transparent;
     }
@@ -809,7 +816,7 @@
     .popup-close {
       position: absolute;
       top: 14px;
-      right: 14px;
+      right: 24px;
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -822,8 +829,9 @@
       font-size: 18px;
       color: var(--muted);
       transition: background var(--transition), color var(--transition), border-color var(--transition);
-      z-index: 2;
+      z-index: 10;
       line-height: 1;
+      flex-shrink: 0;
     }
     .popup-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
@@ -1281,13 +1289,15 @@
 <div class="popup-backdrop" id="popup-backdrop" role="dialog" aria-modal="true">
   <div class="popup" id="popup">
     <button class="popup-close" id="popup-close" aria-label="Fermer">✕</button>
-    <img alt="" class="popup-img" id="popup-img" src="" style="display:none"/>
-    <div class="popup-body">
-      <p class="popup-sub" id="popup-sub"></p>
-      <h2 class="popup-title" id="popup-title"></h2>
-      <!--<div class="popup-divider"></div>-->
-      <p class="popup-desc" id="popup-desc"></p>
-      <div id="popup-btn-wrap"></div>
+    <div class="popup-scroll">
+      <img alt="" class="popup-img" id="popup-img" src="" style="display:none"/>
+      <div class="popup-body">
+        <p class="popup-sub" id="popup-sub"></p>
+        <h2 class="popup-title" id="popup-title"></h2>
+        <!--<div class="popup-divider"></div>-->
+        <p class="popup-desc" id="popup-desc"></p>
+        <div id="popup-btn-wrap"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1370,7 +1380,11 @@
 <div class="card-info">
 <p class="card-info-sub">Athènes, 2026</p>
 <h3 class="card-info-title">Série photographique - Sous les Yeu</h3>
-<p class="card-info-desc">Série photographique - Sous les Yeux</p>
+<p class="card-info-desc">Sous les pas pressés, bien plus bas que l’horizon d’un regard ignare, la pierre gémit,
+elle garde en son sein la mémoire des orages,
+les brûlures du soleil, les confidences des mousses,
+et s’offre pourtant, docile, au fardeau quotidien
+de ceux qui l’effleurent sans la voir.</p>
 <a class="btn" href="https://gael-maignan-photographe.fr/series/sous%20les%20yeux/sous%20les%20yeux.html" target="_blank">Découvrir la série photographique</a>
 </div>
 </div>
@@ -1393,7 +1407,7 @@
 <p class="card-info-desc">Athènes, 1ᵉʳ octobre 2025. La Grèce vit au ralenti : syndicats et travailleurs observent une grève générale contre la réforme autorisant des journées de travail de treize heures.
 [Au milieu de la foule, Panos Rutsis poursuit sa grève de la faim en mémoire de son fils, victime du drame ferroviaire de Tempi, rappelant que le combat pour la justice ne s’arrête pas aux revendications sociales.]
 Ce film suit une journée de rassemblements et de voix qui résonnent place Syntagma.</p>
-<a class="btn" href="https://sous-les-titres.fr/films/le%20jour%20des%2013%20heures/le%20jour%20des%2013%20heures" target="_blank">Voir le projet</a>
+<a class="btn" href="https://sous-les-titres.fr/films/le%20jour%20des%2013%20heures/le%20jour%20des%2013%20heures" target="_blank">Visionner le film</a>
 </div>
 </div>
 
