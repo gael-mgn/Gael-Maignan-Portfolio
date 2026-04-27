@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fleuve GeoJSON (chargement fichier)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    // Initialisation de la carte
+    var map = L.map('map').setView([46.5, 2.5], 6);
+
+    // Fond de carte
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Style du fleuve
+    function styleFleuve() {
+        return {
+            color: "blue",
+            weight: 4
+        };
+    }
+
+    // Chargement du fichier GeoJSON
+    fetch('Ilissós.geojson')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur de chargement du GeoJSON");
+            }
+            return response.json();
+        })
+        .then(data => {
+            var layer = L.geoJSON(data, {
+                style: styleFleuve,
+                onEachFeature: function (feature, layer) {
+                    if (feature.properties && feature.properties.name) {
+                        layer.bindPopup(feature.properties.name);
+                    }
+                }
+            }).addTo(map);
+
+            // Ajuster la vue
+            map.fitBounds(layer.getBounds());
+        })
+        .catch(error => {
+            console.error(error);
+            alert("Impossible de charger le fichier GeoJSON");
+        });
+</script>
+
+</body>
+</html>
