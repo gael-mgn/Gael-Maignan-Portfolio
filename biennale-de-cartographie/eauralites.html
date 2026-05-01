@@ -923,7 +923,7 @@ const SOUNDS = [
 
 
 
-  { id:8, lat:50.7201, lng:3.1589, cat:'eau', name:'Chute d\'eau sous la rue', location:'Tourcoing, courant souterrain', saison:'hiver', duree:'2:14', recit:[2,5] },
+  { id:8, lat:50.7201, lng:3.1589, cat:'eau', name:'Chute d\'eau sous la rue', location:'Tourcoing, courant souterrain', saison:'hiver', duree:'0:14', recit:[2,5] },
 
   { id:9, lat:50.7256, lng:3.1634, cat:'vivant', name:'Merles au soleil', location:'Tourcoing, square du Blankart', saison:'ete', duree:'1:41', recit:[3] },
 
@@ -1112,7 +1112,7 @@ function initMap() {
     attributionControl: false
   });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.webp', {
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     attribution: '© OpenStreetMap'
   }).addTo(map);
