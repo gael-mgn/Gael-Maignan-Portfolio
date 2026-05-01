@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eauralités — Biennale de Cartographie</title>
+<title>L’eau en résonance — Biennale de Cartographie</title>
 
 <!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
@@ -718,8 +718,8 @@
 <!-- SPLASH -->
 <div id="splash">
   <button id="splash-info-btn" onclick="openTuto()" title="Informations & tutoriel">Informations</button>
-  <div class="splash-title">Eauralités</div>
-  <div class="splash-sub">Biennale de Cartographie n°4</div>
+  <div class="splash-title">L’eau en résonance</div>
+  <div class="splash-sub">DEMO - Biennale de Cartographie n°4</div>
   <div class="splash-btns">
     <a id="enter-btn" onclick="enterApp()">Carte Sonore</a>
     <button id="contribuer-btn">Contribuer</button>
@@ -763,7 +763,7 @@
 <div id="app">
   <!-- HEADER -->
   <header>
-    <div class="header-title">Eauralités</div>
+    <div class="header-title">L’eau en résonance</div>
     <div class="header-cats" style="display:none;">
       <button class="cat-pill active" data-cat="eau" onclick="toggleCat(this, 'eau')">Eau</button>
       <button class="cat-pill active" data-cat="vivant" onclick="toggleCat(this, 'vivant')">Vivant</button>
@@ -933,7 +933,7 @@ const SOUNDS = [
   { id:11, lat:50.6230, lng:3.1450, cat:'voix', name:'Témoignage #2', location:'Villeneuve-d’Ascq', saison:'ete', wav:'sons/pas.wav', recit:[4] },
   { id:12, lat:50.8270, lng:3.2640, cat:'voix', name:'Témoignage #3', location:'Kortrijk', saison:'ete', wav:'sons/pas.wav', recit:[4] },
 
-  { id:13, lat:50.7800, lng:3.0380, cat:'vivant', name:'Merles au soleil', location:'Wervik', saison:'ete', wav:'sons/merles.wav', recit:[4] },
+  { id:13, lat:50.7800, lng:3.0380, cat:'vivant', name:'Merles au soleil', location:'Wervik', saison:'ete', wav:'sons/merles.wav', recit:[3] },
 
 
   
@@ -944,33 +944,37 @@ const RECITS = [
   {
     id: 1,
     num: '05',
-    title: '[VIDE] Le récit de la biennale',
-    desc: 'Enregistrements réalisés pendant la biennale elle-même (captations participatives, performances, instants collectifs)',
-    tags: ['voix', 'eau', 'machines'],
+    title: 'Résonances de la biennale',
+    desc: 'Cette catégorie rassemble les enregistrements réalisés pendant la biennale elle-même : captations participatives, extraits de performances, ambiances de balades, instants collectifs, prises de parole et fragments d’échanges. Elle documente la biennale comme événement vécu, partagé et écouté en temps réel.',
+    //tags: ['voix', 'eau', 'machines'],
+    tags: [],
     tagline: 'La cartographie en train de se faire'
   },
   {
     id: 4,
     num: '04',
-    title: 'Voix riveraines',
-    desc: 'Témoignages d\'habitants, artistes, celles et ceux pour qui l\'eau est territoire et mémoire.',
-    tags: ['voix'],
+    title: 'Voix du territoire',
+    desc: 'Cette catégorie accueille les témoignages d’habitants, d’artistes, de travailleurs et d’acteurs du territoire, en plusieurs langues. Elle donne à entendre des récits situés, des expériences de l’eau au quotidien, des mémoires sensibles et des regards multiples sur le territoire transfrontalier.',
+    //tags: ['voix'],
+    tags: [],
     tagline: 'Ce que les bords de l\'eau ont entendu'
   },
   {
     id: 2,
     num: '02',
-    title: 'L\'industrie et l\'eau',
-    desc: 'Les machines qui transforment, pompent, drainent. Le son du travail invisible des rivières canalisées.',
-    tags: ['machines', 'eau'],
+    title: 'Hydraulique vivante',
+    desc: 'Cette catégorie est consacrée aux sons liés aux installations hydrauliques : barrages, pompes, écluses, canaux, ouvrages techniques et dispositifs de gestion de l’eau. Elle met en valeur la dimension sonore des infrastructures, entre fonctionnement mécanique, présence paysagère et relation à l’environnement.',
+    //tags: ['machines', 'eau'],
+    tags: [],
     tagline: 'Les engrenages de l\'eau'
   },
   {
     id: 3,
     num: '03',
-    title: 'Ce qui vit encore',
-    desc: 'Grenouilles, oiseaux, chauve-souris, carpes — les non-humains qui habitent les rives et résistent.',
-    tags: ['vivant'],
+    title: 'Biodiversité sonore',
+    desc: 'Cette catégorie rassemble les sons du vivant : oiseaux, insectes, batraciens, vent dans les roseaux, eau en mouvement, écosystèmes humides et micro-paysages sonores. Elle révèle la présence du non-humain et propose une écoute attentive des milieux traversés par l’eau.',
+    //tags: ['vivant'],
+    tags: [],
     tagline: 'Les habitants silencieux des berges'
   }
 ];
@@ -1004,23 +1008,23 @@ function enterApp() {
 const TUTO_SLIDES = [
   {
     img: 'images/biennale.webp', // remplacer par une URL d'image réelle si disponible
-    title: 'Biennale de Cartographie 4 - Soumission',
-    desc: 'Eauralités est un projet de cartographie sonore participatif des cours d\'eau de L’Eurométropole Lille-Kortrijk-Tournai. Chaque marqueur sur la carte correspond à un enregistrement réalisé in situ : écluses, berges, oiseaux, témoignages et autres réalisés au cours de la biennale. Le projet sera couplé à une installation sonore diffusant les derniers enregistrements.'
+    title: 'Une cartographie sonore participative de l’eau et du territoire',
+    desc: 'Ce projet propose de rendre compte d’un territoire par le son, en recueillant des fragments d’écoute, des ambiances, des témoignages et des présences sensibles autour de l’eau. Il s’agit d’une cartographie vivante, collective et évolutive, conçue comme un outil de lecture du territoire autant qu’un espace de création partagée.'
   },
   {
     img: 'images/carte.webp',
-    title: 'Explorer les sons',
-    desc: 'Cliquez sur un marqueur pour afficher ses informations. Le bouton "Écouter" ouvre le lecteur audio en bas de l\'écran. Vous pouvez naviguer entre les enregistrements avec les contrôles précédent / suivant. Il s\'agit ici d\'une démo, les sons ne sont pas encore disponibles.'
+    title: 'Une carte pour écouter les espaces',
+    desc: 'La carte permet de situer chaque contribution dans l’espace et de relier les sons aux lieux, aux parcours et aux paysages traversés. Elle donne à voir une géographie sensible du territoire, où les points enregistrés dessinent progressivement un atlas sonore en mouvement.'
   },
   {
     img: 'images/recits.webp',
-    title: 'Filtrer par récit',
-    desc: 'La colonne de gauche liste les récits thématiques : industrie, vivant, voix riveraines… Sélectionnez un récit pour ne voir que les sons qui le composent, et tracer son chemin sur la carte.'
+    title: 'Quatre entrées pour structurer l’écoute',
+    desc: 'Les sons sont organisés en quatre catégories : les enregistrements réalisés pendant la biennale ; les témoignages d’habitants, d’artistes et de travailleurs ; les installations hydrauliques et la biodiversité. Cette organisation permet de croiser expériences humaines, infrastructures et milieux vivants dans une même lecture sonore du territoire.'
   },
   {
     img: null,
-    title: 'Contribuer à la carte',
-    desc: 'La fonctionnalité de contribution sera bientôt disponible. Elle permettra à tous les participants de réaliser un enregistrement géolocalisé directement depuis un smartphone et de l\'associer à un récit existant ou d\'en créer un nouveau. Les sons seront alors automatiquement ajoutés à la base de données et pourront alors être diffusés.'
+    title: 'Un dispositif simple, ouvert et accessible',
+    desc: 'Chacun peut contribuer directement depuis son smartphone, en quelques secondes. Le projet fait de l’écoute un geste de participation : enregistrer, localiser, partager. Les contributions alimentent progressivement la carte et peuvent être restituées dans une installation sonore diffusant les derniers sons déposés.'
   }
 ];
 
