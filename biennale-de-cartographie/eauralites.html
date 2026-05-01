@@ -450,6 +450,7 @@
     position: relative; cursor: pointer;
   }
   .waveform svg { width: 100%; height: 100%; }
+  .waveform svg rect { transition: fill 0.12s ease; }
 
   .player-time {
     font-family: 'Raleway', monospace;
@@ -906,33 +907,33 @@ const CATEGORIES = {
 const SOUNDS = [
 
 
-{ id:1, lat:50.5458015, lng:2.9186374, cat:'machines', name:'Écluse de Don', location:'Don, Hauts-de-France', saison:'automne', duree:'3:00', recit:[2] },
+{ id:1, lat:50.5458015, lng:2.9186374, cat:'machines', name:'Écluse de Don', location:'Don, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
-{ id:2, lat:50.6758276, lng:3.0672555, cat:'machines', name:'Écluse de Marquette', location:'Marquette-lez-Lille, Hauts-de-France', saison:'automne', duree:'3:10', recit:[2] },
+{ id:2, lat:50.6758276, lng:3.0672555, cat:'machines', name:'Écluse de Marquette', location:'Marquette-lez-Lille, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
-{ id:3, lat:50.6931819, lng:2.8979826, cat:'machines', name:'Barrage d\'Armentières', location:'Armentières, Hauts-de-France', saison:'automne', duree:'2:50', recit:[2] },
+{ id:3, lat:50.6931819, lng:2.8979826, cat:'machines', name:'Barrage d\'Armentières', location:'Armentières, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
-{ id:4, lat:50.6740667, lng:3.0861692, cat:'machines', name:'Barrage à Marcq', location:'Marcq-en-Barœul, Hauts-de-France', saison:'automne', duree:'2:40', recit:[2] },
+{ id:4, lat:50.6740667, lng:3.0861692, cat:'machines', name:'Barrage à Marcq', location:'Marcq-en-Barœul, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
-{ id:5, lat:50.6474543, lng:3.0445461, cat:'machines', name:'Écluse du Grand Carré (Porte Amont)', location:'Lille, Hauts-de-France', saison:'automne', duree:'3:20', recit:[2] },
+{ id:5, lat:50.6474543, lng:3.0445461, cat:'machines', name:'Écluse du Grand Carré (Porte Amont)', location:'Lille, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
-{ id:6, lat:50.7042649, lng:3.0128267, cat:'machines', name:'Barrage (non nommé)', location:'Wambrechies, Hauts-de-France', saison:'automne', duree:'2:30', recit:[2] },
+{ id:6, lat:50.7042649, lng:3.0128267, cat:'machines', name:'Barrage (non nommé)', location:'Wambrechies, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
-{ id:7, lat:50.6922687, lng:3.2428058, cat:'machines', name:'Déversoir (non nommé)', location:'Baisieux, Hauts-de-France', saison:'automne', duree:'2:20', recit:[2] },
-
-
+{ id:7, lat:50.6922687, lng:3.2428058, cat:'machines', name:'Déversoir (non nommé)', location:'Baisieux, Hauts-de-France', saison:'automne', wav:'sons/barrage.wav', recit:[2] },
 
 
-  { id:8, lat:50.7201, lng:3.1589, cat:'eau', name:'Chute d\'eau sous la rue', location:'Tourcoing, courant souterrain', saison:'hiver', duree:'0:14', recit:[2,5] },
-
-  { id:9, lat:50.7256, lng:3.1634, cat:'vivant', name:'Merles au soleil', location:'Tourcoing, square du Blankart', saison:'ete', duree:'1:41', recit:[3] },
 
 
-  { id:9, lat:50.6293, lng:3.0573, cat:'voix', name:'Témoignage #1', location:'Lille', saison:'ete', duree:'1:41', recit:[4] },
-  { id:10, lat:50.6230, lng:3.1450, cat:'voix', name:'Témoignage #2', location:'Villeneuve-d’Ascq', saison:'ete', duree:'1:41', recit:[4] },
-  { id:11, lat:50.8270, lng:3.2640, cat:'voix', name:'Témoignage #3', location:'Kortrijk', saison:'ete', duree:'1:41', recit:[4] },
+  { id:8, lat:50.7201, lng:3.1589, cat:'eau', name:'Chute d\'eau sous la rue', location:'Tourcoing, courant souterrain', saison:'hiver', wav:'', recit:[2,5] },
 
-  { id:12, lat:50.7800, lng:3.0380, cat:'voix', name:'Témoignage #4', location:'Wervik', saison:'ete', duree:'1:41', recit:[4] },
+  { id:9, lat:50.7256, lng:3.1634, cat:'vivant', name:'Merles au soleil', location:'Tourcoing, square du Blankart', saison:'ete', wav:'sons/merles.wav', recit:[3] },
+
+
+  { id:10, lat:50.6293, lng:3.0573, cat:'voix', name:'Témoignage #1', location:'Lille', saison:'ete', wav:'sons/pas.wav', recit:[4] },
+  { id:11, lat:50.6230, lng:3.1450, cat:'voix', name:'Témoignage #2', location:'Villeneuve-d’Ascq', saison:'ete', wav:'sons/pas.wav', recit:[4] },
+  { id:12, lat:50.8270, lng:3.2640, cat:'voix', name:'Témoignage #3', location:'Kortrijk', saison:'ete', wav:'sons/pas.wav', recit:[4] },
+
+  { id:13, lat:50.7800, lng:3.0380, cat:'vivant', name:'Merles au soleil', location:'Wervik', saison:'ete', wav:'sons/merles.wav', recit:[4] },
 
 
   
@@ -983,10 +984,10 @@ let activeSaison = 'all';
 let activeRecit = null;
 let currentSound = null;
 let playing = false;
-let fakeTimer = null;
-let fakeProgress = 0;
 let recitPaths = [];
 let riversLayer = null;
+let audioEl = null;
+let rafId = null;
 
 // ═══════════════════════════════════════════════════════
 // INIT
@@ -1186,7 +1187,7 @@ function renderMarkers() {
       <div class="popup-body">
         <div class="popup-cat ${s.cat}" style="color:${CATEGORIES[s.cat].color}">${CATEGORIES[s.cat].label}</div>
         <div class="popup-name">${s.name}</div>
-        <div class="popup-meta">${s.location} · ${s.saison} · ${s.duree}</div>
+        <div class="popup-meta">${s.location} · ${s.saison}</div>
         <button class="popup-play" onclick="playSound(${s.id})">
           <div class="popup-play-icon">
             <svg width="8" height="8" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
@@ -1298,73 +1299,138 @@ function selectRecit(id) {
 // ═══════════════════════════════════════════════════════
 // PLAYER
 // ═══════════════════════════════════════════════════════
+// Cached waveform bars heights (generated once per sound, reused during playback)
+let waveformHeights = [];
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${String(s).padStart(2, '0')}`;
+}
+
 function playSound(id) {
   currentSound = SOUNDS.find(s => s.id === id);
   if (!currentSound) return;
+
+  // Stop previous audio & RAF
+  stopAudio();
 
   document.getElementById('p-cat').textContent = CATEGORIES[currentSound.cat].label;
   document.getElementById('p-cat').className = 'player-cat ' + currentSound.cat;
   document.getElementById('p-name').textContent = currentSound.name;
   document.getElementById('p-loc').textContent = currentSound.location + ' · ' + currentSound.saison;
-  document.getElementById('p-time').textContent = '0:00 / ' + currentSound.duree;
+  document.getElementById('p-time').textContent = '0:00 / –:––';
 
   generateWaveform();
   document.getElementById('player-panel').classList.add('open');
-  startFakePlay();
   map.closePopup();
+
+  if (currentSound.wav) {
+    // Real audio
+    audioEl = new Audio(currentSound.wav);
+    audioEl.preload = 'metadata';
+
+    audioEl.addEventListener('loadedmetadata', () => {
+      const dur = audioEl.duration;
+      document.getElementById('p-time').textContent = `0:00 / ${formatTime(dur)}`;
+    });
+
+    audioEl.addEventListener('timeupdate', () => {
+      if (!audioEl) return;
+      updateWaveformProgress(audioEl.currentTime, audioEl.duration || 1);
+      const dur = isFinite(audioEl.duration) ? audioEl.duration : 0;
+      document.getElementById('p-time').textContent =
+        `${formatTime(audioEl.currentTime)} / ${dur ? formatTime(dur) : '–:––'}`;
+    });
+
+    audioEl.addEventListener('ended', () => {
+      playing = false;
+      updatePlayIcon();
+      cancelAnimationFrame(rafId);
+    });
+
+    audioEl.play().then(() => {
+      playing = true;
+      updatePlayIcon();
+    }).catch(() => {
+      // Autoplay blocked — user must press play
+      playing = false;
+      updatePlayIcon();
+    });
+
+  } else {
+    // No wav yet — show placeholder message in time display
+    document.getElementById('p-time').textContent = 'pas de fichier';
+    playing = false;
+    updatePlayIcon();
+  }
 }
 
 function generateWaveform() {
   const svg = document.getElementById('waveform-svg');
-  const bars = 40;
-  let path = '';
+  const bars = 48;
+  waveformHeights = [];
+  let html = '';
   for (let i = 0; i < bars; i++) {
-    const x = (i / bars) * 160;
     const h = 4 + Math.random() * 20;
+    waveformHeights.push(h);
+    const x = (i / bars) * 160;
     const y = (28 - h) / 2;
-    path += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="2.5" height="${h.toFixed(1)}" fill="rgba(111,163,181,0.35)" rx="1" class="wbar" data-i="${i}"/>`;
+    html += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="2.2" height="${h.toFixed(1)}" fill="rgba(111,163,181,0.30)" rx="1.1" class="wbar"/>`;
   }
-  svg.innerHTML = path;
+  svg.innerHTML = html;
 }
 
-function startFakePlay() {
-  clearInterval(fakeTimer);
-  playing = true;
-  fakeProgress = 0;
-  updatePlayIcon();
-
-  const [m, s] = currentSound.duree.split(':').map(Number);
-  const totalSec = m * 60 + s;
-  // Cache bars array once — évite querySelectorAll à chaque tick
-  const bars = Array.from(document.querySelectorAll('.wbar'));
+// Smooth waveform progress using RAF — called from timeupdate event
+function updateWaveformProgress(currentTime, duration) {
+  const pct = duration > 0 ? currentTime / duration : 0;
+  const bars = document.querySelectorAll('.wbar');
   const barsLen = bars.length;
-  const pTimeEl = document.getElementById('p-time');
+  const threshold = pct * barsLen;
+  for (let i = 0; i < barsLen; i++) {
+    const intensity = i < threshold ? 0.85 : 0.30;
+    // Subtle brightness pulse on the "active head" bar
+    const isHead = i === Math.floor(threshold);
+    const fill = isHead
+      ? `rgba(111,163,181,${(0.85 + 0.15 * Math.sin(Date.now() / 180)).toFixed(2)})`
+      : i < threshold ? 'rgba(111,163,181,0.85)' : 'rgba(111,163,181,0.30)';
+    bars[i].setAttribute('fill', fill);
+  }
+  if (playing) rafId = requestAnimationFrame(() => updateWaveformProgress(audioEl ? audioEl.currentTime : 0, duration));
+}
 
-  fakeTimer = setInterval(() => {
-    if (!playing) return;
-    fakeProgress += 1;
-    if (fakeProgress >= totalSec) {
-      clearInterval(fakeTimer);
-      playing = false;
-      updatePlayIcon();
-      return;
-    }
-
-    const pct = fakeProgress / totalSec;
-    const sec = fakeProgress % 60;
-    const min = Math.floor(fakeProgress / 60);
-    pTimeEl.textContent = `${min}:${String(sec).padStart(2,'0')} / ${currentSound.duree}`;
-
-    const threshold = pct * barsLen;
-    for (let i = 0; i < barsLen; i++) {
-      bars[i].setAttribute('fill', i <= threshold ? 'rgba(111,163,181,0.85)' : 'rgba(111,163,181,0.35)');
-    }
-  }, 1000);
+function stopAudio() {
+  cancelAnimationFrame(rafId);
+  if (audioEl) {
+    audioEl.pause();
+    audioEl.src = '';
+    audioEl = null;
+  }
+  playing = false;
 }
 
 function togglePlay() {
   if (!currentSound) return;
-  playing = !playing;
+
+  if (currentSound.wav && !audioEl) {
+    // Re-create audio if it was cleaned up
+    playSound(currentSound.id);
+    return;
+  }
+
+  if (audioEl) {
+    if (playing) {
+      audioEl.pause();
+      playing = false;
+      cancelAnimationFrame(rafId);
+    } else {
+      audioEl.play().then(() => {
+        playing = true;
+        updatePlayIcon();
+        updateWaveformProgress(audioEl.currentTime, audioEl.duration || 1);
+      });
+    }
+  }
   updatePlayIcon();
 }
 
@@ -1376,8 +1442,7 @@ function updatePlayIcon() {
 }
 
 function closePlayer() {
-  clearInterval(fakeTimer);
-  playing = false;
+  stopAudio();
   document.getElementById('player-panel').classList.remove('open');
 }
 
