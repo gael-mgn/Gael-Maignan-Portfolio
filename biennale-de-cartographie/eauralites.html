@@ -718,9 +718,9 @@
 <div id="splash">
   <button id="splash-info-btn" onclick="openTuto()" title="Informations & tutoriel">Informations</button>
   <div class="splash-title">Eauralités</div>
-  <div class="splash-sub">Biennale de Cartographie · soumission de projet</div>
+  <div class="splash-sub">Biennale de Cartographie n°4</div>
   <div class="splash-btns">
-    <a id="enter-btn" onclick="enterApp()">Entrer dans la carte</a>
+    <a id="enter-btn" onclick="enterApp()">Carte Sonore</a>
     <button id="contribuer-btn">Contribuer</button>
   </div>
 </div>
@@ -1002,17 +1002,17 @@ function enterApp() {
 // ═══════════════════════════════════════════════════════
 const TUTO_SLIDES = [
   {
-    img: 'images/biennale.png', // remplacer par une URL d'image réelle si disponible
+    img: 'images/biennale.webp', // remplacer par une URL d'image réelle si disponible
     title: 'Biennale de Cartographie 4 - Soumission',
-    desc: 'Eauralités est un projet de cartographie sonore des cours d\'eau de L’Eurométropole Lille-Kortrijk-Tournai. Chaque marqueur sur la carte correspond à un enregistrement réalisé in situ : écluses, berges, oiseaux, témoignages d\'habitants...'
+    desc: 'Eauralités est un projet de cartographie sonore participatif des cours d\'eau de L’Eurométropole Lille-Kortrijk-Tournai. Chaque marqueur sur la carte correspond à un enregistrement réalisé in situ : écluses, berges, oiseaux, témoignages et autres réalisés au cours de la biennale. Le projet sera couplé à une installation sonore diffusant les derniers enregistrements.'
   },
   {
-    img: 'images/carte.png',
+    img: 'images/carte.webp',
     title: 'Explorer les sons',
     desc: 'Cliquez sur un marqueur pour afficher ses informations. Le bouton "Écouter" ouvre le lecteur audio en bas de l\'écran. Vous pouvez naviguer entre les enregistrements avec les contrôles précédent / suivant. Il s\'agit ici d\'une démo, les sons ne sont pas encore disponibles.'
   },
   {
-    img: 'images/recits.png',
+    img: 'images/recits.webp',
     title: 'Filtrer par récit',
     desc: 'La colonne de gauche liste les récits thématiques : industrie, vivant, voix riveraines… Sélectionnez un récit pour ne voir que les sons qui le composent, et tracer son chemin sur la carte.'
   },
@@ -1112,7 +1112,7 @@ function initMap() {
     attributionControl: false
   });
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.webp', {
     maxZoom: 18,
     attribution: '© OpenStreetMap'
   }).addTo(map);
