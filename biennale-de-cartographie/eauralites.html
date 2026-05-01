@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eauralités — Biennale de Cartographie</title>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+
+
+<style>
+  :root {
+    --ardoise: #2a2f35;
+    --eau-profonde: #1e3a4a;
+    --lichen: #5a6b4f;
+    --rouille: #8b4a2e;
+    --ocre: #c4874a;
+    --craie: #e8e2d5;
+    --brume: #555F6B;
+    --eau-claire: #6fa3b5;
+    --fond: #F2EDE4;
+    --noir-encre: #18201f;
+
+    --cat-eau: #6fa3b5;
+    --cat-vivant: #5a6b4f;
+    --cat-machines: #8b4a2e;
+    --cat-voix: #9b7a5a;
+  }
+
+  #splash { will-change: opacity; }
+  #player-panel { will-change: transform; }
+  #sidebar { will-change: transform; }
+  #tuto-modal { will-change: opacity; }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--fond);
+    color: var(--ardoise);
+    font-family: 'Raleway', serif;
+    overflow: hidden;
+  }
+
+  /* ── SPLASH ── */
+  #splash {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--eau-profonde);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  #splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+  .splash-title {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 300;
+    color: var(--craie);
+    letter-spacing: 0.08em;
+    line-height: 1.05;
+    text-align: center;
+  }
+  .splash-title em {
+    display: block;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--eau-claire);
+  }
+  .splash-sub {
+    margin-top: 1.5rem;
+    font-family: 'Raleway', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--eau-claire);
+    text-transform: uppercase;
+  }
+  @keyframes drip {
+    0%,100% { transform: scaleY(1); opacity: 0.6; }
+    50% { transform: scaleY(1.3); opacity: 1; }
+  }
+  /* Bouton info en haut à droite du splash */
+  #splash-info-btn {
+    position: absolute; top: 1.4rem; right: 1.6rem;
+    background: rgba(111,163,181,0.18);
+    border: 1.5px solid var(--eau-claire);
+    color: var(--craie);
+    height: 36px;
+    padding: 0 1rem;
+    border-radius: 18px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 0.45rem;
+    transition: background 0.25s, border-color 0.25s, color 0.25s;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  #splash-info-btn::before {
+    content: 'i';
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--eau-claire);
+    color: var(--eau-profonde);
+    font-size: 0.7rem; font-style: italic; font-weight: 700;
+    flex-shrink: 0;
+  }
+  #splash-info-btn:hover {
+    background: rgba(111,163,181,0.3);
+    border-color: var(--craie);
+    color: var(--craie);
+  }
+
+  /* Groupe de boutons du splash */
+  .splash-btns {
+    margin-top: 2rem;
+    display: flex; gap: 0.9rem; align-items: center;
+  }
+
+  #enter-btn {
+    background: none; border: 1px solid var(--eau-claire);
+    color: var(--eau-claire); padding: 0.7rem 2.2rem;
+    font-family: 'Raleway', monospace; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  #enter-btn:hover { background: var(--eau-claire); color: var(--eau-profonde); }
+
+  /* Bouton Contribuer (inactif) */
+  #contribuer-btn {
+    background: none; border: 1px solid rgba(111,163,181,0.25);
+    color: rgba(111,163,181,0.4); padding: 0.7rem 2.2rem;
+    font-family: 'Raleway', monospace; font-size: 0.65rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: not-allowed; pointer-events: none;
+    position: relative;
+  }
+
+
+  /* ── MODAL TUTORIEL ── */
+  #tuto-modal {
+    position: fixed; inset: 0; z-index: 10000;
+    background: rgba(18,28,35,0.75); backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  #tuto-modal.open { opacity: 1; visibility: visible; pointer-events: all; }
+
+  .tuto-box {
+    background: var(--eau-profonde);
+    border: 1px solid rgba(111,163,181,0.2);
+    width: min(480px, 92vw);
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tuto-close {
+    position: absolute; top: 0.9rem; right: 1rem;
+    background: none; border: none; cursor: pointer;
+    color: rgba(111,163,181,0.5); font-size: 1rem; line-height: 1;
+    transition: color 0.2s; z-index: 2;
+  }
+  .tuto-close:hover { color: var(--eau-claire); }
+
+  /* Zone image */
+  .tuto-img-wrap {
+    width: 100%; aspect-ratio: 16/9;
+    background: rgba(0,0,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; position: relative;
+  }
+  .tuto-img-wrap img {
+    width: 100%; height: 100%; object-fit: cover;
+    display: none;
+  }
+  .tuto-img-wrap img.active { display: block; }
+
+  /* Placeholder quand pas d'image */
+  .tuto-img-placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.7rem;
+  }
+  .tuto-img-placeholder svg { opacity: 0.15; }
+  .tuto-img-placeholder span {
+    font-family: 'Raleway', monospace;
+    font-size: 0.42rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(111,163,181,0.3);
+  }
+
+  /* Dots indicateurs */
+  .tuto-dots {
+    display: flex; justify-content: center; gap: 0.45rem;
+    padding: 0.9rem 1.4rem 0;
+  }
+  .tuto-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: rgba(111,163,181,0.25);
+    transition: background 0.25s, transform 0.25s;
+  }
+  .tuto-dot.active { background: var(--eau-claire); transform: scale(1.3); }
+
+  /* Contenu texte */
+  .tuto-content { padding: 1rem 1.6rem 1.5rem; }
+  .tuto-step-label {
+    font-family: 'Raleway', monospace;
+    font-size: 0.45rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(111,163,181,0.5); margin-bottom: 0.5rem;
+  }
+  .tuto-slide-title {
+    font-size: 1.1rem; font-weight: 400; color: var(--craie);
+    line-height: 1.25; margin-bottom: 0.55rem;
+  }
+  .tuto-slide-desc {
+    font-size: 0.75rem; font-style: italic; color: rgba(232,226,213,0.65);
+    line-height: 1.65;
+  }
+
+  /* Navigation prev / next */
+  .tuto-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.8rem 1.6rem 1.2rem;
+    border-top: 1px solid rgba(111,163,181,0.1);
+  }
+  .tuto-nav-btn {
+    background: none; border: 1px solid rgba(111,163,181,0.3);
+    color: var(--eau-claire); cursor: pointer;
+    padding: 0.45rem 1.1rem;
+    font-family: 'Raleway', monospace; font-size: 0.48rem;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .tuto-nav-btn:hover { background: rgba(111,163,181,0.12); border-color: var(--eau-claire); }
+  .tuto-nav-btn:disabled { opacity: 0.2; cursor: default; pointer-events: none; }
+  .tuto-nav-btn.primary {
+    background: rgba(111,163,181,0.15); border-color: var(--eau-claire);
+  }
+
+  /* ── LAYOUT ── */
+  #app {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    grid-template-rows: 56px 1fr;
+    height: 100vh;
+    opacity: 0; transition: opacity 0.8s 0.2s ease;
+  }
+  #app.visible { opacity: 1; }
+
+  /* ── HEADER ── */
+  header {
+    grid-column: 1 / -1;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 1.5rem;
+    background: var(--ardoise);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative; z-index: 100;
+  }
+  .header-title {
+    font-size: 1.1rem; font-weight: 300;
+    color: var(--craie); letter-spacing: 0.06em;
+  }
+  .header-title span { color: var(--eau-claire); font-style: italic; }
+  .header-meta {
+    font-family: 'Raleway', monospace;
+    font-size: 0.55rem; letter-spacing: 0.2em;
+    color: var(--brume); text-transform: uppercase;
+  }
+  .header-cats {
+    display: flex; gap: 1rem;
+  }
+  .cat-pill {
+    font-family: 'Raleway', monospace;
+    font-size: 0.5rem; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 0.3rem 0.8rem; border-radius: 20px;
+    background: rgba(255,255,255,0.05); color: var(--brume);
+    cursor: pointer; border: 1px solid transparent;
+    transition: all 0.25s;
+  }
+  .cat-pill[data-cat="eau"].active, .cat-pill[data-cat="eau"]:hover { border-color: var(--cat-eau); color: var(--cat-eau); background: rgba(111,163,181,0.1); }
+  .cat-pill[data-cat="vivant"].active, .cat-pill[data-cat="vivant"]:hover { border-color: var(--cat-vivant); color: var(--cat-vivant); background: rgba(90,107,79,0.1); }
+  .cat-pill[data-cat="machines"].active, .cat-pill[data-cat="machines"]:hover { border-color: var(--cat-machines); color: var(--cat-machines); background: rgba(139,74,46,0.1); }
+  .cat-pill[data-cat="voix"].active, .cat-pill[data-cat="voix"]:hover { border-color: var(--cat-voix); color: var(--cat-voix); background: rgba(155,122,90,0.1); }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    background: var(--fond);
+    border-right: 1px solid rgba(42,47,53,0.12);
+    display: flex; flex-direction: column;
+    overflow: hidden; position: relative; z-index: 10;
+  }
+
+  .sidebar-top {
+    padding: 1.2rem 1.4rem 0.8rem;
+    border-bottom: 1px solid rgba(42,47,53,0.1);
+  }
+  .sidebar-label {
+    font-family: 'Raleway', monospace;
+    font-size: 0.5rem; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--brume);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── RÉCITS / NARRATIVES ── */
+  #recits-list {
+    display: flex; flex-direction: column; gap: 0;
+    overflow-y: auto; flex: 1;
+    scrollbar-width: thin; scrollbar-color: var(--brume) transparent;
+  }
+
+  .recit-item {
+    padding: 1rem 1.4rem;
+    border-bottom: 1px solid rgba(42,47,53,0.08);
+    cursor: pointer; transition: background 0.2s;
+    position: relative;
+  }
+  .recit-item:hover, .recit-item.active { background: rgba(42,47,53,0.04); }
+  .recit-item.active::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--eau-claire);
+  }
+
+  .recit-num {
+    font-family: 'Raleway', monospace;
+    font-size: 0.5rem; letter-spacing: 0.2em;
+    color: var(--brume); margin-bottom: 0.25rem;
+  }
+  .recit-title {
+    font-size: 1.05rem; font-weight: 400;
+    line-height: 1.2; color: var(--ardoise);
+    margin-bottom: 0.3rem;
+  }
+  .recit-desc {
+    font-size: 0.75rem; font-style: italic;
+    color: var(--brume); line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+  .recit-tags { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+  .recit-tag {
+    font-family: 'Raleway', monospace;
+    font-size: 0.42rem; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.15rem 0.5rem; border-radius: 3px;
+  }
+  .tag-eau { background: rgba(111,163,181,0.15); color: var(--cat-eau); }
+  .tag-vivant { background: rgba(90,107,79,0.15); color: var(--cat-vivant); }
+  .tag-machines { background: rgba(139,74,46,0.15); color: var(--cat-machines); }
+  .tag-voix { background: rgba(155,122,90,0.15); color: var(--cat-voix); }
+
+  /* ── MAP ── */
+  #map-container {
+    position: relative; overflow: hidden;
+  }
+  #map {
+    width: 100%; height: 100%;
+    background: #ddd8cc;
+  }
+
+  /* Leaflet custom tiles look */
+  .leaflet-tile { filter: sepia(0.3) hue-rotate(10deg) brightness(0.92); }
+
+  /* ── MAP OVERLAYS ── */
+  .map-overlay-text {
+    position: absolute; bottom: 2rem; left: 1.5rem;
+    z-index: 500; pointer-events: none;
+  }
+  .map-tagline {
+    font-size: 1.6rem; font-weight: 300; font-style: italic;
+    color: var(--ardoise); line-height: 1.2;
+    text-shadow: 0 1px 4px rgba(248,241,232,0.8);
+  }
+  .map-counter {
+    font-family: 'Raleway', monospace;
+    font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--lichen); margin-top: 0.4rem;
+  }
+
+  /* ── AUDIO PLAYER PANEL ── */
+  #player-panel {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    z-index: 600;
+    background: var(--ardoise);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  #player-panel.open { transform: translateY(0); }
+
+  .player-inner {
+    padding: 0.8rem 1.4rem;
+    display: flex; align-items: center; gap: 1.4rem;
+  }
+  .player-close {
+    background: none; border: none; cursor: pointer;
+    color: var(--brume); font-size: 1rem; line-height: 1;
+    transition: color 0.2s; flex-shrink: 0;
+  }
+  .player-close:hover { color: var(--craie); }
+
+  .player-info { flex: 1; min-width: 0; }
+  .player-cat {
+    font-family: 'Raleway', monospace;
+    font-size: 0.48rem; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 0.15rem;
+  }
+  .player-cat.eau { color: var(--cat-eau); }
+  .player-cat.vivant { color: var(--cat-vivant); }
+  .player-cat.machines { color: var(--cat-machines); }
+  .player-cat.voix { color: var(--cat-voix); }
+
+  .player-name {
+    font-size: 0.95rem; font-weight: 400;
+    color: var(--craie); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .player-location {
+    font-size: 0.65rem; font-style: italic;
+    color: var(--brume); margin-top: 0.1rem;
+  }
+
+  .player-controls { display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0; }
+  .ctrl-btn {
+    background: none; border: none; cursor: pointer;
+    color: var(--brume); transition: color 0.2s;
+    font-size: 1rem; display: flex; align-items: center;
+  }
+  .ctrl-btn:hover, .ctrl-btn.active { color: var(--craie); }
+  .play-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--eau-claire); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; flex-shrink: 0;
+  }
+  .play-btn:hover { background: var(--brume); }
+  .play-btn svg { width: 14px; height: 14px; fill: var(--ardoise); }
+
+  .waveform {
+    width: 160px; height: 28px; flex-shrink: 0;
+    position: relative; cursor: pointer;
+  }
+  .waveform svg { width: 100%; height: 100%; }
+
+  .player-time {
+    font-family: 'Raleway', monospace;
+    font-size: 0.5rem; color: var(--brume);
+    flex-shrink: 0; min-width: 60px; text-align: right;
+  }
+
+  /* ── CUSTOM MARKERS ── */
+  .sound-marker {
+    width: 28px; height: 28px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .sound-marker:hover, .sound-marker.active {
+    transform: rotate(-45deg) scale(1.2);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  }
+  .sound-marker .inner {
+    transform: rotate(45deg);
+    font-size: 10px;
+    color: white;
+  }
+  .marker-eau { background: var(--cat-eau); }
+  .marker-vivant { background: var(--cat-vivant); }
+  .marker-machines { background: var(--cat-machines); }
+  .marker-voix { background: var(--cat-voix); }
+
+  /* ── POPUP ── */
+  .leaflet-popup-content-wrapper {
+    background: var(--ardoise) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4) !important;
+    border: 1px solid rgba(255,255,255,0.07) !important;
+  }
+  .leaflet-popup-tip { background: var(--ardoise) !important; }
+  .leaflet-popup-content { margin: 0 !important; }
+
+  .popup-body { padding: 0.9rem 1.1rem; min-width: 200px; }
+  .popup-cat {
+    font-family: 'Raleway', monospace;
+    font-size: 0.45rem; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .popup-name {
+    font-size: 1rem; font-weight: 400;
+    color: var(--craie); line-height: 1.3; margin-bottom: 0.2rem;
+  }
+  .popup-meta {
+    font-size: 0.65rem; font-style: italic;
+    color: var(--brume); margin-bottom: 0.6rem;
+  }
+  .popup-play {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-family: 'Raleway', monospace;
+    font-size: 0.48rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--brume); cursor: pointer; border: none; background: none;
+    padding: 0.4rem 0; transition: color 0.2s;
+  }
+  .popup-play:hover { color: var(--craie); }
+  .popup-play-icon {
+    width: 20px; height: 20px; border-radius: 50%;
+    background: rgba(255,255,255,0.1); display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .popup-play:hover .popup-play-icon { background: var(--eau-claire); }
+
+  /* ── RÉCIT HIGHLIGHT PATH ── */
+  .recit-path { stroke-dasharray: 6, 4; animation: dash 20s linear infinite; }
+  @keyframes dash { to { stroke-dashoffset: -200; } }
+
+  /* ── LEGEND ── */
+  #legend {
+    position: absolute; top: 1rem; right: 1rem; z-index: 500;
+    background: rgba(248,241,232,0.92); backdrop-filter: blur(8px);
+    border: 1px solid rgba(42,47,53,0.12);
+    padding: 0.8rem 1rem; min-width: 140px;
+  }
+  .legend-title {
+    font-family: 'Raleway', monospace;
+    font-size: 0.45rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--brume); margin-bottom: 0.6rem;
+  }
+  .legend-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.4rem; cursor: pointer;
+  }
+  .legend-dot {
+    width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+  }
+  .legend-label {
+    font-size: 0.72rem; color: var(--ardoise);
+  }
+  .legend-count {
+    font-family: 'Raleway', monospace;
+    font-size: 0.45rem; color: var(--brume); margin-left: auto;
+  }
+
+  /* ── SEASON BADGE ── */
+  .season-badge {
+    position: absolute; top: 1rem; left: 50%; transform: translateX(-50%);
+    z-index: 500;
+    background: rgba(248,241,232,0.92); backdrop-filter: blur(8px);
+    border: 1px solid rgba(42,47,53,0.12);
+    padding: 0.3rem 0.9rem;
+    display: flex; gap: 0.8rem;
+  }
+  .season-btn {
+    font-family: 'Raleway', monospace;
+    font-size: 0.45rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--brume); cursor: pointer; background: none; border: none;
+    padding: 0.15rem 0; transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+  }
+  .season-btn.active { color: var(--ardoise); border-bottom-color: var(--ardoise); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--brume); border-radius: 2px; }
+
+  /* ══════════════════════════════════════════════
+     MOBILE RESPONSIVE
+  ══════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    html, body { overflow: hidden; }
+
+    /* ── APP LAYOUT : carte plein écran ── */
+    #app {
+      grid-template-columns: 1fr;
+      grid-template-rows: 48px 1fr;
+      height: 100dvh;
+    }
+
+    /* ── HEADER mobile ── */
+    header {
+      padding: 0 1rem;
+    }
+    .header-meta { display: none; }
+    .header-title { font-size: 1rem; }
+    .header-cats { display: none !important; }
+
+    /* ── SIDEBAR → drawer bas ── */
+    #sidebar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      top: auto;
+      height: 70vh;
+      border-right: none;
+      border-top: 1px solid rgba(42,47,53,0.15);
+      border-radius: 16px 16px 0 0;
+      z-index: 800;
+      transform: translateY(100%);
+      transition: transform 0.38s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.18);
+    }
+    #sidebar.open { transform: translateY(0); }
+
+    /* Poignée de drag */
+    #sidebar::before {
+      content: '';
+      display: block;
+      width: 36px; height: 4px;
+      background: rgba(42,47,53,0.2);
+      border-radius: 2px;
+      margin: 10px auto 0;
+    }
+
+    .sidebar-top { padding: 0.8rem 1.2rem 0.6rem; }
+
+    /* ── MAP CONTAINER : plein écran sous le header ── */
+    #map-container {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    /* ── BOUTON FLOTTANT "Récits" ── */
+    #fab-recits {
+      display: flex;
+    }
+
+    /* ── LÉGENDE : compacte, repositionnée ── */
+    #legend {
+      top: auto;
+      bottom: 5.5rem;
+      right: 0.75rem;
+      min-width: 110px;
+      padding: 0.6rem 0.75rem;
+    }
+    .legend-title { font-size: 0.4rem; margin-bottom: 0.4rem; }
+    .legend-item { margin-bottom: 0.3rem; }
+    .legend-label { font-size: 0.65rem; }
+    .legend-count { font-size: 0.4rem; }
+    .legend-dot { width: 8px; height: 8px; }
+
+    /* ── TAGLINE carte ── */
+    .map-overlay-text {
+      bottom: 1rem;
+      left: 1rem;
+      right: 130px; /* évite la légende */
+    }
+    .map-tagline { font-size: 1.1rem; }
+
+    /* ── PLAYER PANEL mobile ── */
+    #player-panel {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 900;
+    }
+    .player-inner {
+      padding: 0.6rem 0.9rem;
+      gap: 0.75rem;
+      flex-wrap: nowrap;
+    }
+    .waveform { width: 80px; }
+    .player-name { font-size: 0.82rem; }
+    .player-location { font-size: 0.58rem; }
+    .player-time { font-size: 0.45rem; min-width: 48px; }
+
+    /* ── RÉCIT ITEMS : plus aérés au touch ── */
+    .recit-item { padding: 0.9rem 1.2rem; }
+    .recit-title { font-size: 0.95rem; }
+    .recit-desc { font-size: 0.7rem; }
+  }
+
+  /* ── FAB Récits (caché sur desktop) ── */
+  #fab-recits {
+    display: none;
+    position: absolute;
+    bottom: 5.5rem;
+    left: 1rem;
+    z-index: 700;
+    align-items: center; gap: 0.5rem;
+    background: var(--ardoise);
+    color: var(--craie);
+    border: none; cursor: pointer;
+    padding: 0.55rem 1rem;
+    border-radius: 24px;
+    font-family: 'Raleway', monospace;
+    font-size: 0.5rem; letter-spacing: 0.2em; text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+    transition: background 0.2s;
+  }
+  #fab-recits:hover { background: var(--eau-profonde); }
+  #fab-recits svg { width: 13px; height: 13px; fill: var(--eau-claire); flex-shrink: 0; }
+
+  /* Overlay sombre derrière le drawer */
+  #drawer-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 790;
+  }
+  #drawer-overlay.visible { display: block; }
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <button id="splash-info-btn" onclick="openTuto()" title="Informations & tutoriel">Informations</button>
+  <div class="splash-title">Eauralités</div>
+  <div class="splash-sub">Biennale de Cartographie · soumission de projet</div>
+  <div class="splash-btns">
+    <a id="enter-btn" onclick="enterApp()">Entrer dans la carte</a>
+    <button id="contribuer-btn">Contribuer</button>
+  </div>
+</div>
+
+<!-- MODAL TUTORIEL -->
+<div id="tuto-modal" onclick="onTutoOverlayClick(event)">
+  <div class="tuto-box">
+    <button class="tuto-close" onclick="closeTuto()">✕</button>
+
+    <!-- Zone image (placeholder SVG visible tant qu'il n'y a pas de vraie image) -->
+    <div class="tuto-img-wrap">
+      <img id="tuto-img" />
+      <div class="tuto-img-placeholder">
+        <svg width="56" height="56" viewBox="0 0 24 24" fill="var(--eau-claire)"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <span id="tuto-img-label">illustration de l'étape</span>
+      </div>
+      <!-- Les balises img seraient ici avec de vraies sources -->
+    </div>
+
+    <!-- Dots -->
+    <div class="tuto-dots" id="tuto-dots"></div>
+
+    <!-- Contenu slide -->
+    <div class="tuto-content">
+      <div class="tuto-step-label" id="tuto-step-label">Étape 1 / 4</div>
+      <div class="tuto-slide-title" id="tuto-slide-title"></div>
+      <div class="tuto-slide-desc" id="tuto-slide-desc"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="tuto-nav">
+      <button class="tuto-nav-btn" id="tuto-prev" onclick="tutoNav(-1)">← Précédent</button>
+      <button class="tuto-nav-btn primary" id="tuto-next" onclick="tutoNav(1)">Suivant →</button>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <!-- HEADER -->
+  <header>
+    <div class="header-title">Eauralités</div>
+    <div class="header-cats" style="display:none;">
+      <button class="cat-pill active" data-cat="eau" onclick="toggleCat(this, 'eau')">Eau</button>
+      <button class="cat-pill active" data-cat="vivant" onclick="toggleCat(this, 'vivant')">Vivant</button>
+      <button class="cat-pill active" data-cat="machines" onclick="toggleCat(this, 'machines')">Machines</button>
+      <button class="cat-pill active" data-cat="voix" onclick="toggleCat(this, 'voix')">Voix</button>
+    </div>
+    <div class="header-meta">...</div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-label">Récits</div>
+    </div>
+    <div id="recits-list"></div>
+  </aside>
+
+  <!-- Overlay drawer (mobile) -->
+  <div id="drawer-overlay" onclick="toggleDrawer()"></div>
+
+  <!-- MAP CONTAINER -->
+  <div id="map-container">
+    <div id="map"></div>
+
+    <!-- Bouton flottant Récits (mobile only) -->
+    <button id="fab-recits" onclick="toggleDrawer()">
+      <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+      Récits
+    </button>
+
+    <!-- Season filter -->
+    <!--
+    <div class="season-badge">
+      <button class="season-btn active" onclick="setSaison(this,'all')">Tout</button>
+      <button class="season-btn" onclick="setSaison(this,'ete')">Été</button>
+      <button class="season-btn" onclick="setSaison(this,'automne')">Automne</button>
+      <button class="season-btn" onclick="setSaison(this,'hiver')">Hiver</button>
+      <button class="season-btn" onclick="setSaison(this,'biennale')">Biennale</button>
+    </div>-->
+
+    <!-- Legend -->
+    <div id="legend">
+      <div class="legend-title">Catégories</div>
+      <div class="legend-item" onclick="toggleCat(document.querySelector('[data-cat=eau]'),'eau')">
+        <div class="legend-dot" style="background:var(--cat-eau)"></div>
+        <span class="legend-label">Eau</span>
+        <span class="legend-count">14</span>
+      </div>
+      <div class="legend-item" onclick="toggleCat(document.querySelector('[data-cat=vivant]'),'vivant')">
+        <div class="legend-dot" style="background:var(--cat-vivant)"></div>
+        <span class="legend-label">Vivant</span>
+        <span class="legend-count">13</span>
+      </div>
+      <div class="legend-item" onclick="toggleCat(document.querySelector('[data-cat=machines]'),'machines')">
+        <div class="legend-dot" style="background:var(--cat-machines)"></div>
+        <span class="legend-label">Machines</span>
+        <span class="legend-count">11</span>
+      </div>
+      <div class="legend-item" onclick="toggleCat(document.querySelector('[data-cat=voix]'),'voix')">
+        <div class="legend-dot" style="background:var(--cat-voix)"></div>
+        <span class="legend-label">Voix</span>
+        <span class="legend-count">9</span>
+      </div>
+    </div>
+
+    <!-- Map tagline -->
+    <div class="map-overlay-text">
+      <div class="map-tagline" id="map-tagline">Tous les enregistrements</div>
+      <!--<div class="map-counter" id="map-counter">47 sons · visible sur la carte--></div>
+    </div>
+
+    <!-- Player panel -->
+    <div id="player-panel">
+      <div class="player-inner">
+        <button class="player-close" onclick="closePlayer()">✕</button>
+        <div class="player-info">
+          <div class="player-cat" id="p-cat">eau</div>
+          <div class="player-name" id="p-name">—</div>
+          <div class="player-location" id="p-loc">—</div>
+        </div>
+        <div class="waveform" id="waveform" onclick="togglePlay()">
+          <svg viewBox="0 0 160 28" preserveAspectRatio="none" id="waveform-svg"></svg>
+        </div>
+        <div class="player-controls">
+          <button class="ctrl-btn" onclick="prevSound()" title="Précédent">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+          </button>
+          <button class="play-btn" id="play-btn" onclick="togglePlay()">
+            <svg id="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="ctrl-btn" onclick="nextSound()" title="Suivant">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zm2-8.14 5.47 3.64L8 14.14V9.86zM16 6h2v12h-2z"/></svg>
+          </button>
+        </div>
+        <div class="player-time" id="p-time">0:00 / 2:34</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════════════
+
+
+
+async function loadRivers() {
+  const response = await fetch('eurometropole_waterways_2026-05.geojson');
+  const geojson = await response.json();
+
+  riversLayer = L.geoJSON(geojson, {
+    style: {
+      color: '#6fa3b5',
+      weight: 4,
+      opacity: 0.8,
+      lineCap: 'round',
+      lineJoin: 'round'
+    },
+    onEachFeature: function (feature, layer) {
+      if (feature.properties?.name) {
+        layer.bindTooltip(feature.properties.name, {
+          sticky: true,
+          direction: 'top'
+        });
+      }
+    }
+  }).addTo(map);
+}
+
+
+
+const CATEGORIES = {
+  eau: { color: '#6fa3b5', label: 'Eau' },
+  vivant: { color: '#5a6b4f', label: 'Vivant' },
+  machines: { color: '#8b4a2e', label: 'Machines' },
+  voix: { color: '#9b7a5a', label: 'Voix' }
+};
+
+// Enregistrements géoréférencés (cours d'eau lillois)
+const SOUNDS = [
+
+
+{ id:1, lat:50.5458015, lng:2.9186374, cat:'machines', name:'Écluse de Don', location:'Don, Hauts-de-France', saison:'automne', duree:'3:00', recit:[2] },
+
+{ id:2, lat:50.6758276, lng:3.0672555, cat:'machines', name:'Écluse de Marquette', location:'Marquette-lez-Lille, Hauts-de-France', saison:'automne', duree:'3:10', recit:[2] },
+
+{ id:3, lat:50.6931819, lng:2.8979826, cat:'machines', name:'Barrage d\'Armentières', location:'Armentières, Hauts-de-France', saison:'automne', duree:'2:50', recit:[2] },
+
+{ id:4, lat:50.6740667, lng:3.0861692, cat:'machines', name:'Barrage à Marcq', location:'Marcq-en-Barœul, Hauts-de-France', saison:'automne', duree:'2:40', recit:[2] },
+
+{ id:5, lat:50.6474543, lng:3.0445461, cat:'machines', name:'Écluse du Grand Carré (Porte Amont)', location:'Lille, Hauts-de-France', saison:'automne', duree:'3:20', recit:[2] },
+
+{ id:6, lat:50.7042649, lng:3.0128267, cat:'machines', name:'Barrage (non nommé)', location:'Wambrechies, Hauts-de-France', saison:'automne', duree:'2:30', recit:[2] },
+
+{ id:7, lat:50.6922687, lng:3.2428058, cat:'machines', name:'Déversoir (non nommé)', location:'Baisieux, Hauts-de-France', saison:'automne', duree:'2:20', recit:[2] },
+
+
+
+
+  { id:8, lat:50.7201, lng:3.1589, cat:'eau', name:'Chute d\'eau sous la rue', location:'Tourcoing, courant souterrain', saison:'hiver', duree:'2:14', recit:[2,5] },
+
+  { id:9, lat:50.7256, lng:3.1634, cat:'vivant', name:'Merles au soleil', location:'Tourcoing, square du Blankart', saison:'ete', duree:'1:41', recit:[3] },
+
+
+  { id:9, lat:50.6293, lng:3.0573, cat:'voix', name:'Témoignage #1', location:'Lille', saison:'ete', duree:'1:41', recit:[4] },
+  { id:10, lat:50.6230, lng:3.1450, cat:'voix', name:'Témoignage #2', location:'Villeneuve-d’Ascq', saison:'ete', duree:'1:41', recit:[4] },
+  { id:11, lat:50.8270, lng:3.2640, cat:'voix', name:'Témoignage #3', location:'Kortrijk', saison:'ete', duree:'1:41', recit:[4] },
+
+  { id:12, lat:50.7800, lng:3.0380, cat:'voix', name:'Témoignage #4', location:'Wervik', saison:'ete', duree:'1:41', recit:[4] },
+
+
+  
+
+];
+
+const RECITS = [
+  {
+    id: 1,
+    num: '05',
+    title: '[VIDE] Le récit de la biennale',
+    desc: 'Enregistrements réalisés pendant la biennale elle-même (captations participatives, performances, instants collectifs)',
+    tags: ['voix', 'eau', 'machines'],
+    tagline: 'La cartographie en train de se faire'
+  },
+  {
+    id: 4,
+    num: '04',
+    title: 'Voix riveraines',
+    desc: 'Témoignages d\'habitants, artistes, celles et ceux pour qui l\'eau est territoire et mémoire.',
+    tags: ['voix'],
+    tagline: 'Ce que les bords de l\'eau ont entendu'
+  },
+  {
+    id: 2,
+    num: '02',
+    title: 'L\'industrie et l\'eau',
+    desc: 'Les machines qui transforment, pompent, drainent. Le son du travail invisible des rivières canalisées.',
+    tags: ['machines', 'eau'],
+    tagline: 'Les engrenages de l\'eau'
+  },
+  {
+    id: 3,
+    num: '03',
+    title: 'Ce qui vit encore',
+    desc: 'Grenouilles, oiseaux, chauve-souris, carpes — les non-humains qui habitent les rives et résistent.',
+    tags: ['vivant'],
+    tagline: 'Les habitants silencieux des berges'
+  }
+];
+
+// ═══════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════
+let map, markersLayer = [];
+let activeCats = new Set(['eau','vivant','machines','voix']);
+let activeSaison = 'all';
+let activeRecit = null;
+let currentSound = null;
+let playing = false;
+let fakeTimer = null;
+let fakeProgress = 0;
+let recitPaths = [];
+let riversLayer = null;
+
+// ═══════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════
+function enterApp() {
+  document.getElementById('splash').classList.add('hidden');
+  document.getElementById('app').classList.add('visible');
+  setTimeout(initMap, 300);
+}
+
+// ═══════════════════════════════════════════════════════
+// TUTORIEL MODAL
+// ═══════════════════════════════════════════════════════
+const TUTO_SLIDES = [
+  {
+    img: 'images/biennale.png', // remplacer par une URL d'image réelle si disponible
+    title: 'Biennale de Cartographie 4 - Soumission',
+    desc: 'Eauralités est un projet de cartographie sonore des cours d\'eau de L’Eurométropole Lille-Kortrijk-Tournai. Chaque marqueur sur la carte correspond à un enregistrement réalisé in situ : écluses, berges, oiseaux, témoignages d\'habitants...'
+  },
+  {
+    img: 'images/carte.png',
+    title: 'Explorer les sons',
+    desc: 'Cliquez sur un marqueur pour afficher ses informations. Le bouton "Écouter" ouvre le lecteur audio en bas de l\'écran. Vous pouvez naviguer entre les enregistrements avec les contrôles précédent / suivant. Il s\'agit ici d\'une démo, les sons ne sont pas encore disponibles.'
+  },
+  {
+    img: 'images/recits.png',
+    title: 'Filtrer par récit',
+    desc: 'La colonne de gauche liste les récits thématiques : industrie, vivant, voix riveraines… Sélectionnez un récit pour ne voir que les sons qui le composent, et tracer son chemin sur la carte.'
+  },
+  {
+    img: null,
+    title: 'Contribuer à la carte',
+    desc: 'La fonctionnalité de contribution sera bientôt disponible. Elle permettra à tous les participants de réaliser un enregistrement géolocalisé directement depuis un smartphone et de l\'associer à un récit existant ou d\'en créer un nouveau. Les sons seront alors automatiquement ajoutés à la base de données et pourront alors être diffusés.'
+  }
+];
+
+let tutoIndex = 0;
+
+function openTuto() {
+  tutoIndex = 0;
+  renderTutoSlide();
+  document.getElementById('tuto-modal').classList.add('open');
+}
+function closeTuto() {
+  document.getElementById('tuto-modal').classList.remove('open');
+}
+function onTutoOverlayClick(e) {
+  if (e.target === document.getElementById('tuto-modal')) closeTuto();
+}
+function tutoNav(dir) {
+  tutoIndex = Math.max(0, Math.min(TUTO_SLIDES.length - 1, tutoIndex + dir));
+  renderTutoSlide();
+}
+function renderTutoSlide() {
+  const slide = TUTO_SLIDES[tutoIndex];
+  const total = TUTO_SLIDES.length;
+
+  const imgEl = document.getElementById('tuto-img');
+
+  if (slide.img) {
+    imgEl.src = slide.img;
+    imgEl.classList.add('active');
+    document.querySelector('.tuto-img-placeholder').style.display = 'none';
+  } else {
+    imgEl.classList.remove('active');
+    imgEl.removeAttribute('src');
+    document.querySelector('.tuto-img-placeholder').style.display = 'flex';
+  }
+
+  document.getElementById('tuto-step-label').textContent = `Étape ${tutoIndex + 1} / ${total}`;
+  document.getElementById('tuto-slide-title').textContent = slide.title;
+  document.getElementById('tuto-slide-desc').textContent = slide.desc;
+  document.getElementById('tuto-img-label').textContent = `illustration — ${slide.title.toLowerCase()}`;
+
+  // Dots
+  const dotsEl = document.getElementById('tuto-dots');
+  dotsEl.innerHTML = TUTO_SLIDES.map((_, i) =>
+    `<div class="tuto-dot${i === tutoIndex ? ' active' : ''}"></div>`
+  ).join('');
+
+  // Boutons
+  document.getElementById('tuto-prev').disabled = tutoIndex === 0;
+  const nextBtn = document.getElementById('tuto-next');
+  if (tutoIndex === total - 1) {
+    nextBtn.textContent = 'Fermer';
+    nextBtn.onclick = closeTuto;
+  } else {
+    nextBtn.textContent = 'Suivant →';
+    nextBtn.onclick = () => tutoNav(1);
+  }
+}
+
+// Initialisation modale au chargement
+document.addEventListener('DOMContentLoaded', renderTutoSlide);
+
+// ═══════════════════════════════════════════════════════
+// MOBILE DRAWER
+// ═══════════════════════════════════════════════════════
+function toggleDrawer(forceClose) {
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('drawer-overlay');
+  const isOpen = sidebar.classList.contains('open');
+  if (forceClose || isOpen) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('visible');
+  } else {
+    sidebar.classList.add('open');
+    overlay.classList.add('visible');
+  }
+}
+
+// Fermer le drawer quand on clique sur un récit (mobile)
+function selectRecitMobile(id) {
+  selectRecit(id);
+  if (window.innerWidth <= 768) toggleDrawer(true);
+}
+
+function initMap() {
+  map = L.map('map', {
+    center: [50.62, 3.05],
+    zoom: 11,
+    zoomControl: false,
+    attributionControl: false
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  //L.control.zoom({ position: 'bottomright' }).addTo(map);
+  L.control.attribution({ position: 'bottomright', prefix: false }).addTo(map).addAttribution('');
+
+  loadRivers();
+  buildSidebar();
+  renderMarkers();
+
+  // Ajuster la vue pour englober tous les marqueurs visibles au chargement
+  const allCoords = SOUNDS.map(s => [s.lat, s.lng]);
+  if (allCoords.length > 0) {
+    map.fitBounds(L.latLngBounds(allCoords), { padding: [48, 48], maxZoom: 13 });
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+// SIDEBAR
+// ═══════════════════════════════════════════════════════
+function buildSidebar() {
+  const list = document.getElementById('recits-list');
+  const fragment = document.createDocumentFragment();
+  RECITS.forEach(r => {
+    const div = document.createElement('div');
+    div.className = 'recit-item';
+    div.dataset.id = r.id;
+    div.onclick = () => window.innerWidth <= 768 ? selectRecitMobile(r.id) : selectRecit(r.id);
+    div.innerHTML = `
+      <div class="recit-num">Récit ${r.num}</div>
+      <div class="recit-title">${r.title}</div>
+      <div class="recit-desc">${r.desc}</div>
+      <div class="recit-tags">
+        ${r.tags.map(t=>`<span class="recit-tag tag-${t}">${CATEGORIES[t].label}</span>`).join('')}
+      </div>`;
+    fragment.appendChild(div);
+  });
+  list.innerHTML = '';
+  list.appendChild(fragment);
+}
+
+// ═══════════════════════════════════════════════════════
+// MARKERS
+// ═══════════════════════════════════════════════════════
+function renderMarkers() {
+  // Clear via LayerGroup batch
+  markersLayer.forEach(m => map.removeLayer(m));
+  markersLayer = [];
+  recitPaths.forEach(p => map.removeLayer(p));
+  recitPaths = [];
+
+  const activeCatsArr = [...activeCats]; // snapshot pour éviter recalc dans le filter
+  const filtered = SOUNDS.filter(s => {
+    return activeCatsArr.includes(s.cat) &&
+      (activeSaison === 'all' || s.saison === activeSaison) &&
+      (activeRecit === null || s.recit.includes(activeRecit));
+  });
+
+  filtered.forEach(s => {
+    const icon = L.divIcon({
+      className: '',
+      html: `<div class="sound-marker marker-${s.cat}"><div class="inner">♪</div></div>`,
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    });
+
+    const marker = L.marker([s.lat, s.lng], { icon }).addTo(map);
+
+    const popupContent = `
+      <div class="popup-body">
+        <div class="popup-cat ${s.cat}" style="color:${CATEGORIES[s.cat].color}">${CATEGORIES[s.cat].label}</div>
+        <div class="popup-name">${s.name}</div>
+        <div class="popup-meta">${s.location} · ${s.saison} · ${s.duree}</div>
+        <button class="popup-play" onclick="playSound(${s.id})">
+          <div class="popup-play-icon">
+            <svg width="8" height="8" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          Écouter
+        </button>
+      </div>`;
+
+    marker.bindPopup(popupContent, { maxWidth: 260, minWidth: 200, closeButton: false });
+    markersLayer.push(marker);
+  });
+
+  // Draw path for active récit
+  // Draw path for active récit
+if (activeRecit !== null) {
+  const recitSounds = filtered.sort((a,b) => a.id - b.id);
+
+  if (recitSounds.length > 1) {
+    const latlngs = recitSounds.map(s => [s.lat, s.lng]);
+    const recit = RECITS.find(r => r.id === activeRecit);
+    const pathColor = recit.tags[0] ? CATEGORIES[recit.tags[0]].color : '#6fa3b5';
+
+    const path = L.polyline(latlngs, {
+      color: pathColor,
+      weight: 2,
+      opacity: 0.5,
+      className: 'recit-path'
+    }).addTo(map);
+
+    recitPaths.push(path);
+  }
+
+  if (filtered.length > 0) {
+    const bounds = L.latLngBounds(filtered.map(s => [s.lat, s.lng]));
+    map.fitBounds(bounds, { padding: [60, 60] });
+  }
+
+} else {
+
+  // ✅ CAS INITIAL (premier chargement ou reset filtre)
+  if (filtered.length > 0) {
+    const bounds = L.latLngBounds(filtered.map(s => [s.lat, s.lng]));
+    map.fitBounds(bounds, { padding: [60, 60] });
+  }
+}
+
+  updateCounter(filtered.length);
+
+}
+
+function updateCounter(n) {
+  document.getElementById('map-counter').textContent = `${n} son${n>1?'s':''} · visible${n>1?'s':''} sur la carte`;
+}
+
+// ═══════════════════════════════════════════════════════
+// FILTERS
+// ═══════════════════════════════════════════════════════
+function toggleCat(btn, cat) {
+  if (typeof btn === 'string') { cat = btn; btn = document.querySelector(`[data-cat="${cat}"]`); }
+  if (activeCats.has(cat)) {
+    if (activeCats.size === 1) return;
+    activeCats.delete(cat);
+    btn.classList.remove('active');
+  } else {
+    activeCats.add(cat);
+    btn.classList.add('active');
+  }
+  renderMarkers();
+}
+
+function setSaison(btn, saison) {
+  document.querySelectorAll('.season-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeSaison = saison;
+  renderMarkers();
+}
+
+function selectRecit(id) {
+  document.querySelectorAll('.recit-item').forEach(el => el.classList.remove('active'));
+  const el = document.querySelector(`.recit-item[data-id="${id}"]`);
+
+  if (activeRecit === id) {
+    // 👉 DÉSÉLECTION
+    activeRecit = null;
+    document.getElementById('map-tagline').innerHTML = 'Tous les enregistrements';
+
+    // ✅ RECENTRAGE GLOBAL ICI
+    const allVisible = SOUNDS.filter(s => 
+      activeCats.has(s.cat) && 
+      (activeSaison === 'all' || s.saison === activeSaison)
+    );
+
+    if (allVisible.length > 0) {
+      const bounds = L.latLngBounds(allVisible.map(s => [s.lat, s.lng]));
+      map.fitBounds(bounds, { padding: [60, 60] });
+    }
+
+  } else {
+    // 👉 SÉLECTION
+    activeRecit = id;
+    el.classList.add('active');
+    const recit = RECITS.find(r => r.id === id);
+    document.getElementById('map-tagline').innerHTML = recit.tagline.replace(' ', '<br>');
+  }
+
+  renderMarkers();
+}
+
+// ═══════════════════════════════════════════════════════
+// PLAYER
+// ═══════════════════════════════════════════════════════
+function playSound(id) {
+  currentSound = SOUNDS.find(s => s.id === id);
+  if (!currentSound) return;
+
+  document.getElementById('p-cat').textContent = CATEGORIES[currentSound.cat].label;
+  document.getElementById('p-cat').className = 'player-cat ' + currentSound.cat;
+  document.getElementById('p-name').textContent = currentSound.name;
+  document.getElementById('p-loc').textContent = currentSound.location + ' · ' + currentSound.saison;
+  document.getElementById('p-time').textContent = '0:00 / ' + currentSound.duree;
+
+  generateWaveform();
+  document.getElementById('player-panel').classList.add('open');
+  startFakePlay();
+  map.closePopup();
+}
+
+function generateWaveform() {
+  const svg = document.getElementById('waveform-svg');
+  const bars = 40;
+  let path = '';
+  for (let i = 0; i < bars; i++) {
+    const x = (i / bars) * 160;
+    const h = 4 + Math.random() * 20;
+    const y = (28 - h) / 2;
+    path += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="2.5" height="${h.toFixed(1)}" fill="rgba(111,163,181,0.35)" rx="1" class="wbar" data-i="${i}"/>`;
+  }
+  svg.innerHTML = path;
+}
+
+function startFakePlay() {
+  clearInterval(fakeTimer);
+  playing = true;
+  fakeProgress = 0;
+  updatePlayIcon();
+
+  const [m, s] = currentSound.duree.split(':').map(Number);
+  const totalSec = m * 60 + s;
+  // Cache bars array once — évite querySelectorAll à chaque tick
+  const bars = Array.from(document.querySelectorAll('.wbar'));
+  const barsLen = bars.length;
+  const pTimeEl = document.getElementById('p-time');
+
+  fakeTimer = setInterval(() => {
+    if (!playing) return;
+    fakeProgress += 1;
+    if (fakeProgress >= totalSec) {
+      clearInterval(fakeTimer);
+      playing = false;
+      updatePlayIcon();
+      return;
+    }
+
+    const pct = fakeProgress / totalSec;
+    const sec = fakeProgress % 60;
+    const min = Math.floor(fakeProgress / 60);
+    pTimeEl.textContent = `${min}:${String(sec).padStart(2,'0')} / ${currentSound.duree}`;
+
+    const threshold = pct * barsLen;
+    for (let i = 0; i < barsLen; i++) {
+      bars[i].setAttribute('fill', i <= threshold ? 'rgba(111,163,181,0.85)' : 'rgba(111,163,181,0.35)');
+    }
+  }, 1000);
+}
+
+function togglePlay() {
+  if (!currentSound) return;
+  playing = !playing;
+  updatePlayIcon();
+}
+
+function updatePlayIcon() {
+  const icon = document.getElementById('play-icon');
+  icon.innerHTML = playing
+    ? '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>'
+    : '<path d="M8 5v14l11-7z"/>';
+}
+
+function closePlayer() {
+  clearInterval(fakeTimer);
+  playing = false;
+  document.getElementById('player-panel').classList.remove('open');
+}
+
+function nextSound() {
+  if (!currentSound) return;
+  const visible = SOUNDS.filter(s => activeCats.has(s.cat));
+  const idx = visible.findIndex(s => s.id === currentSound.id);
+  const next = visible[(idx + 1) % visible.length];
+  playSound(next.id);
+}
+
+function prevSound() {
+  if (!currentSound) return;
+  const visible = SOUNDS.filter(s => activeCats.has(s.cat));
+  const idx = visible.findIndex(s => s.id === currentSound.id);
+  const prev = visible[(idx - 1 + visible.length) % visible.length];
+  playSound(prev.id);
+}
+</script>
+</body>
+</html>
